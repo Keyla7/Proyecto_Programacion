@@ -4,7 +4,14 @@
  */
 package Modelo;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -13,9 +20,10 @@ import java.util.ArrayList;
 public class RegistroCliente {
     ArrayList<Cliente> listaClientes;
     String mensaje;
+    private String filePath = "clientes.json";
 
     public RegistroCliente() {
-        this.listaClientes = new ArrayList<>();
+        this.listaClientes = readFromJson();
         this.mensaje = "";
     }
     
@@ -70,6 +78,64 @@ public class RegistroCliente {
             }
         }
         return matrizClientes;
+    }
+    
+    public void appendToJson(Cliente cliente) {
+        JSONObject nuevoCliente = new JSONObject();
+        nuevoCliente.put("id", cliente.getId());
+        nuevoCliente.put("nombre", cliente.getNombre());
+        nuevoCliente.put("apellido", cliente.getApellido());
+        nuevoCliente.put("edad", cliente.getEdad());
+        nuevoCliente.put("telefono", cliente.getTelefono());
+        nuevoCliente.put("categoria", cliente.getCategoria());
+        nuevoCliente.put("paymentPlan", cliente.getPaymentPlan());
+        nuevoCliente.put("altura", cliente.getAltura());
+        nuevoCliente.put("peso", cliente.getPeso());
+
+        JSONArray arrayCliente = new JSONArray();
+ 
+        JSONParser parser = new JSONParser();
+        try ( FileReader reader = new FileReader(filePath)) {
+            Object nuevo = parser.parse(reader);
+            arrayCliente = (JSONArray) nuevo;
+        } catch (IOException | org.json.simple.parser.ParseException e) {
+            System.out.println("File no found");
+        }
+        arrayCliente.add(nuevoCliente);
+        try ( FileWriter archivo = new FileWriter(filePath)) {
+            archivo.write(arrayCliente.toJSONString());
+            archivo.flush();
+        } catch (IOException io) {
+            io.printStackTrace();
+        }
+    }
+    
+    public ArrayList<Cliente> readFromJson() {
+        ArrayList<Cliente> arrayClientes = new ArrayList<>();
+        JSONParser parser = new JSONParser();
+        try ( FileReader reader = new FileReader(filePath)) {
+            Object obj = parser.parse(reader);
+            JSONArray jsonArray = (JSONArray) obj;
+            for (Object object : jsonArray) {
+                JSONObject miCliente = (JSONObject) object;
+                 int id = ((Long) miCliente.get("id")).intValue();
+                String nombre = (String) miCliente.get("nombre");
+                String apellido = (String) miCliente.get("apellido");
+                 int edad = ((Long) miCliente.get("edad")).intValue();
+                 int telefono = ((Long) miCliente.get("telefono")).intValue();
+                 String categoria = (String) miCliente.get("categoria");
+                 String paymentPlan = (String) miCliente.get("paymentPlan");
+                double altura = (Double) miCliente.get("altura");
+                double peso = (Double) miCliente.get("peso");
+                Cliente clientes = new Cliente(id, nombre, apellido, edad, telefono, categoria, paymentPlan, altura, peso);
+                arrayClientes.add(clientes);
+
+            }
+
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+        return arrayClientes;
     }
 
 }
