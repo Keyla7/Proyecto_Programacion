@@ -25,7 +25,8 @@ public class RegistroFacturas {
 
     private ArrayList<Factura> facturas;
     private String filePath = "Facturas.csv";
-
+    public static final String [] TITULOS_FACTURA = {"idCliente","idFactura","Fecha","Nombre","Metodo de Pago", "Pago Total"};
+    
     public RegistroFacturas() {
         this.facturas = new ArrayList<>();
     }
@@ -99,5 +100,16 @@ public class RegistroFacturas {
             return "Factura editada correctamente";
         }
         return "No existe una factura con este id";
+    }
+    
+    public String [][] getMatrizFacturas() throws IOException{
+        facturas = leerCSV(filePath);
+        String [][] matrizFacturas = new String [facturas.size()][TITULOS_FACTURA.length];
+        for (int i = 0; i < matrizFacturas.length; i++) {
+            for (int j = 0; j < matrizFacturas[i].length; j++) {
+                matrizFacturas[i][j]=facturas.get(i).getDatosfactura(j);
+            }
+        }
+        return matrizFacturas;
     }
 }
