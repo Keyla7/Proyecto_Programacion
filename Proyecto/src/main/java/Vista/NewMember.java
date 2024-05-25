@@ -4,8 +4,10 @@
  */
 package Vista;
 
+import Modelo.Cliente;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -19,9 +21,39 @@ public class NewMember extends javax.swing.JFrame {
     public NewMember() {
         initComponents();
     }
-    public void escuchar(ActionListener manejador){
+
+    public void escuchar(ActionListener manejador) {
         this.btCheckIn.addActionListener(manejador);
         this.btSalir.addActionListener(manejador);
+    }
+
+    public Cliente getNewMember() {
+        int id = Integer.parseInt(txtID.getText());
+        String nombre = txtNombre.getText();
+        String apellido = txtApellido.getText();
+        int edad = Integer.parseInt(txtEdad.getText());
+        int telefono = Integer.parseInt(txtTelefono.getText());
+        String comboCategory = (String) cBoxCategory.getSelectedItem();
+        String comboPlan = (String) cBoxPayment.getSelectedItem();
+        double altura = Double.parseDouble(txtHeight.getText());
+        double peso = Double.parseDouble(txtWeight.getText());
+
+        return new Cliente(Integer.parseInt(this.txtID.getText()), this.txtNombre.getText(), this.txtApellido.getText(), Integer.parseInt(this.txtEdad.getText()), Integer.parseInt(this.txtTelefono.getText()), this.cBoxCategory.getActionCommand(), this.cBoxPayment.getActionCommand(), Double.parseDouble(this.txtHeight.getText()), Double.parseDouble(this.txtWeight.getText()));
+    }
+
+    public void cargarCombo(String[] listaOperaciones) {
+        String[] membresias = {"Membresía Básica", "Membresía Estándar", "Membresía Premium", "Membresía Estudiantil"};
+        String[] planesPago = {"Pago Mensual", "Pago Anual", "Pago Trimestral", "Pago Semestral", "Pago por día"};
+        this.cBoxCategory.setModel(new DefaultComboBoxModel<>(membresias));
+        this.cBoxPayment.setModel(new DefaultComboBoxModel<>(planesPago));
+    }
+
+    public String devolverCombo() {
+        return this.cBoxCategory.getSelectedItem().toString();
+    }
+    
+    public String devolverCombo2(){
+        return this.cBoxPayment.getSelectedItem().toString();
     }
 
     /**
@@ -186,7 +218,7 @@ public class NewMember extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel7.setText("Phone Numbre");
+        jLabel7.setText("Phone Number");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
 
         txtTelefono.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
@@ -218,11 +250,7 @@ public class NewMember extends javax.swing.JFrame {
 
         cBoxCategory.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         cBoxCategory.setForeground(new java.awt.Color(51, 51, 51));
-        cBoxCategory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cBoxCategoryActionPerformed(evt);
-            }
-        });
+        cBoxCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Membresía Básica", "Membresía Estándar", "Membresía Premium", "Membresía Estudiantil" }));
         jPanel1.add(cBoxCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 200, 20));
 
         jLabel9.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -235,11 +263,7 @@ public class NewMember extends javax.swing.JFrame {
 
         cBoxPayment.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         cBoxPayment.setForeground(new java.awt.Color(51, 51, 51));
-        cBoxPayment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cBoxPaymentActionPerformed(evt);
-            }
-        });
+        cBoxPayment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pago Mensual", "Pago Anual", "Pago Trimestral", "Pago Semestral", "Pago por día" }));
         jPanel1.add(cBoxPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 200, 20));
 
         jLabel10.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -310,26 +334,18 @@ public class NewMember extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cBoxCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxCategoryActionPerformed
-
-    }//GEN-LAST:event_cBoxCategoryActionPerformed
-
-    private void cBoxPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxPaymentActionPerformed
-
-    }//GEN-LAST:event_cBoxPaymentActionPerformed
-
     private void btCheckInMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCheckInMouseEntered
         btCheckIn.setBackground(Color.DARK_GRAY);
         btCheckIn.setForeground(new java.awt.Color(222, 222, 222));
     }//GEN-LAST:event_btCheckInMouseEntered
 
     private void btCheckInMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCheckInMouseExited
-         btCheckIn.setBackground(new java.awt.Color(255, 51, 51));
+        btCheckIn.setBackground(new java.awt.Color(255, 51, 51));
         btCheckIn.setForeground(new java.awt.Color(51, 51, 51));
     }//GEN-LAST:event_btCheckInMouseExited
 
     private void btSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalirMouseEntered
-         btSalir.setBackground(new java.awt.Color(255, 51, 51));
+        btSalir.setBackground(new java.awt.Color(255, 51, 51));
         btSalir.setForeground(new java.awt.Color(51, 51, 51));
     }//GEN-LAST:event_btSalirMouseEntered
 
@@ -339,31 +355,31 @@ public class NewMember extends javax.swing.JFrame {
     }//GEN-LAST:event_btSalirMouseExited
 
     private void txtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseClicked
-         if (txtNombre.getText().equals("Ingrese su nombre")) {
-            txtNombre.setText(""); 
+        if (txtNombre.getText().equals("Ingrese su nombre")) {
+            txtNombre.setText("");
             txtNombre.setForeground(Color.DARK_GRAY);
         }
-         if (txtApellido.getText().isEmpty()) {
+        if (txtApellido.getText().isEmpty()) {
             txtApellido.setText("Ingrese su apellido");
             txtApellido.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtID.getText().isEmpty() ) {
+        if (txtID.getText().isEmpty()) {
             txtID.setText("Ingrese su ID");
             txtID.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtEdad.getText().isEmpty()) {
+        if (txtEdad.getText().isEmpty()) {
             txtEdad.setText("Ingrese su edad");
             txtEdad.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtTelefono.getText().isEmpty()) {
+        if (txtTelefono.getText().isEmpty()) {
             txtTelefono.setText("0000-0000");
             txtTelefono.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtHeight.getText().isEmpty()) {
+        if (txtHeight.getText().isEmpty()) {
             txtHeight.setText("Ingrese su altura");
             txtHeight.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtWeight.getText().isEmpty()) {
+        if (txtWeight.getText().isEmpty()) {
             txtWeight.setText("Ingrese su peso");
             txtWeight.setForeground(Color.LIGHT_GRAY);
         }
@@ -375,30 +391,30 @@ public class NewMember extends javax.swing.JFrame {
 
     private void txtApellidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtApellidoMouseClicked
         if (txtApellido.getText().equals("Ingrese su apellido")) {
-            txtApellido.setText(""); 
+            txtApellido.setText("");
             txtApellido.setForeground(Color.DARK_GRAY);
         }
         if (txtNombre.getText().isEmpty()) {
             txtNombre.setText("Ingrese su nombre");
             txtNombre.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtID.getText().isEmpty() ) {
+        if (txtID.getText().isEmpty()) {
             txtID.setText("Ingrese su ID");
             txtID.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtEdad.getText().isEmpty()) {
+        if (txtEdad.getText().isEmpty()) {
             txtEdad.setText("Ingrese su edad");
             txtEdad.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtTelefono.getText().isEmpty()) {
+        if (txtTelefono.getText().isEmpty()) {
             txtTelefono.setText("0000-0000");
             txtTelefono.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtHeight.getText().isEmpty()) {
+        if (txtHeight.getText().isEmpty()) {
             txtHeight.setText("Ingrese su altura");
             txtHeight.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtWeight.getText().isEmpty()) {
+        if (txtWeight.getText().isEmpty()) {
             txtWeight.setText("Ingrese su peso");
             txtWeight.setForeground(Color.LIGHT_GRAY);
         }
@@ -406,30 +422,30 @@ public class NewMember extends javax.swing.JFrame {
 
     private void txtIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIDMouseClicked
         if (txtID.getText().equals("Ingrese su ID")) {
-            txtID.setText(""); 
+            txtID.setText("");
             txtID.setForeground(Color.DARK_GRAY);
         }
         if (txtNombre.getText().isEmpty()) {
             txtNombre.setText("Ingrese su nombre");
             txtNombre.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtApellido.getText().isEmpty() ) {
+        if (txtApellido.getText().isEmpty()) {
             txtApellido.setText("Ingrese su apellido");
             txtApellido.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtEdad.getText().isEmpty()) {
+        if (txtEdad.getText().isEmpty()) {
             txtEdad.setText("Ingrese su edad");
             txtEdad.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtTelefono.getText().isEmpty()) {
+        if (txtTelefono.getText().isEmpty()) {
             txtTelefono.setText("0000-0000");
             txtTelefono.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtHeight.getText().isEmpty()) {
+        if (txtHeight.getText().isEmpty()) {
             txtHeight.setText("Ingrese su altura");
             txtHeight.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtWeight.getText().isEmpty()) {
+        if (txtWeight.getText().isEmpty()) {
             txtWeight.setText("Ingrese su peso");
             txtWeight.setForeground(Color.LIGHT_GRAY);
         }
@@ -437,30 +453,30 @@ public class NewMember extends javax.swing.JFrame {
 
     private void txtEdadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEdadMouseClicked
         if (txtEdad.getText().equals("Ingrese su edad")) {
-            txtEdad.setText(""); 
+            txtEdad.setText("");
             txtEdad.setForeground(Color.DARK_GRAY);
         }
         if (txtNombre.getText().isEmpty()) {
             txtNombre.setText("Ingrese su nombre");
             txtNombre.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtApellido.getText().isEmpty()) {
+        if (txtApellido.getText().isEmpty()) {
             txtApellido.setText("Ingrese su apellido");
             txtApellido.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtID.getText().isEmpty() ) {
+        if (txtID.getText().isEmpty()) {
             txtID.setText("Ingrese su ID");
             txtID.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtTelefono.getText().isEmpty()) {
+        if (txtTelefono.getText().isEmpty()) {
             txtTelefono.setText("0000-0000");
             txtTelefono.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtHeight.getText().isEmpty()) {
+        if (txtHeight.getText().isEmpty()) {
             txtHeight.setText("Ingrese su altura");
             txtHeight.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtWeight.getText().isEmpty()) {
+        if (txtWeight.getText().isEmpty()) {
             txtWeight.setText("Ingrese su peso");
             txtWeight.setForeground(Color.LIGHT_GRAY);
         }
@@ -468,30 +484,30 @@ public class NewMember extends javax.swing.JFrame {
 
     private void txtTelefonoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoMouseClicked
         if (txtTelefono.getText().equals("0000-0000")) {
-            txtTelefono.setText(""); 
+            txtTelefono.setText("");
             txtTelefono.setForeground(Color.DARK_GRAY);
         }
         if (txtNombre.getText().isEmpty()) {
             txtNombre.setText("Ingrese su nombre");
             txtNombre.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtApellido.getText().isEmpty()) {
+        if (txtApellido.getText().isEmpty()) {
             txtApellido.setText("Ingrese su apellido");
             txtApellido.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtID.getText().isEmpty() ) {
+        if (txtID.getText().isEmpty()) {
             txtID.setText("Ingrese su ID");
             txtID.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtEdad.getText().isEmpty()) {
+        if (txtEdad.getText().isEmpty()) {
             txtEdad.setText("Ingrese su edad");
             txtEdad.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtHeight.getText().isEmpty()) {
+        if (txtHeight.getText().isEmpty()) {
             txtHeight.setText("Ingrese su altura");
             txtHeight.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtWeight.getText().isEmpty()) {
+        if (txtWeight.getText().isEmpty()) {
             txtWeight.setText("Ingrese su peso");
             txtWeight.setForeground(Color.LIGHT_GRAY);
         }
@@ -499,30 +515,30 @@ public class NewMember extends javax.swing.JFrame {
 
     private void txtHeightMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtHeightMouseClicked
         if (txtHeight.getText().equals("Ingrese su altura")) {
-            txtHeight.setText(""); 
+            txtHeight.setText("");
             txtHeight.setForeground(Color.DARK_GRAY);
         }
         if (txtNombre.getText().isEmpty()) {
             txtNombre.setText("Ingrese su nombre");
             txtNombre.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtApellido.getText().isEmpty()) {
+        if (txtApellido.getText().isEmpty()) {
             txtApellido.setText("Ingrese su apellido");
             txtApellido.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtID.getText().isEmpty() ) {
+        if (txtID.getText().isEmpty()) {
             txtID.setText("Ingrese su ID");
             txtID.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtEdad.getText().isEmpty()) {
+        if (txtEdad.getText().isEmpty()) {
             txtEdad.setText("Ingrese su edad");
             txtEdad.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtTelefono.getText().isEmpty()) {
+        if (txtTelefono.getText().isEmpty()) {
             txtTelefono.setText("0000-0000");
             txtTelefono.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtWeight.getText().isEmpty()) {
+        if (txtWeight.getText().isEmpty()) {
             txtWeight.setText("Ingrese su peso");
             txtWeight.setForeground(Color.LIGHT_GRAY);
         }
@@ -530,30 +546,30 @@ public class NewMember extends javax.swing.JFrame {
 
     private void txtWeightMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtWeightMouseClicked
         if (txtWeight.getText().equals("Ingrese su peso")) {
-            txtWeight.setText(""); 
+            txtWeight.setText("");
             txtWeight.setForeground(Color.DARK_GRAY);
         }
         if (txtNombre.getText().isEmpty()) {
             txtNombre.setText("Ingrese su nombre");
             txtNombre.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtApellido.getText().isEmpty()) {
+        if (txtApellido.getText().isEmpty()) {
             txtApellido.setText("Ingrese su apellido");
             txtApellido.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtID.getText().isEmpty() ) {
+        if (txtID.getText().isEmpty()) {
             txtID.setText("Ingrese su ID");
             txtID.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtEdad.getText().isEmpty()) {
+        if (txtEdad.getText().isEmpty()) {
             txtEdad.setText("Ingrese su edad");
             txtEdad.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtTelefono.getText().isEmpty()) {
+        if (txtTelefono.getText().isEmpty()) {
             txtTelefono.setText("0000-0000");
             txtTelefono.setForeground(Color.LIGHT_GRAY);
         }
-         if (txtHeight.getText().isEmpty()) {
+        if (txtHeight.getText().isEmpty()) {
             txtHeight.setText("Ingrese su altura");
             txtHeight.setForeground(Color.LIGHT_GRAY);
         }

@@ -5,6 +5,7 @@
 package Vista;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +19,11 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
     }
+    
+    public static void getMensaje(String msj){
+        JOptionPane.showMessageDialog(null, msj);
+    }
+    
     public void escucharItems(ActionListener manejador){
         this.itemNew.addActionListener(manejador);
         this.itemEditDelete.addActionListener(manejador);

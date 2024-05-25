@@ -53,7 +53,7 @@ public class RegistroCliente {
     public String eliminarCliente(Cliente cliente) {
         if (buscarCliente(cliente.getId()) != null) {
             this.listaClientes.remove(cliente);
-            mensaje = "Cliente eliminad con exito";
+            mensaje = "Cliente eliminado con exito";
         } else {
             mensaje = "El cliente ingresado no existe";
         }
@@ -82,6 +82,7 @@ public class RegistroCliente {
     
     public void appendToJson(Cliente cliente) {
         JSONObject nuevoCliente = new JSONObject();
+        
         nuevoCliente.put("id", cliente.getId());
         nuevoCliente.put("nombre", cliente.getNombre());
         nuevoCliente.put("apellido", cliente.getApellido());
