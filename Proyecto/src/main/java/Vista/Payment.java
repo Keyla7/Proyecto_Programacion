@@ -6,6 +6,9 @@ package Vista;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -13,6 +16,8 @@ import java.awt.event.ActionListener;
  */
 public class Payment extends javax.swing.JFrame {
 
+    TableRowSorter<TableModel>sorter;
+    
     /**
      * Creates new form Payment
      */
@@ -22,6 +27,17 @@ public class Payment extends javax.swing.JFrame {
     public void escuchar(ActionListener manejador){
         this.btSearch.addActionListener(manejador);
         this.btSalir3.addActionListener(manejador);
+    }
+    
+    public void setDataTable(String[][] data, String[] encabezado){
+        DefaultTableModel model = new DefaultTableModel(data, encabezado);
+        this.tblPayment.setModel(model);
+        
+        this.tblPayment.setAutoCreateRowSorter(true); //indica a latabla que en cada una de las filas se van a crear un filtro
+        this.sorter= new TableRowSorter<>(model);//se crea la instancia y se pasa el modelo que seria basicamente la tabla
+        this.tblPayment.setRowSorter(sorter);//aqui la tabla ya tendría los filtros
+        
+        this.jScrollPane1.setViewportView(this.tblPayment);
     }
 
     /**
@@ -41,7 +57,7 @@ public class Payment extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         btSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblPayment = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -127,10 +143,10 @@ public class Payment extends javax.swing.JFrame {
         });
         jPanel1.add(btSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 50, 30));
 
-        jTable1.setBackground(new java.awt.Color(51, 51, 51));
-        jTable1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(204, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblPayment.setBackground(new java.awt.Color(51, 51, 51));
+        tblPayment.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        tblPayment.setForeground(new java.awt.Color(204, 255, 255));
+        tblPayment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -140,10 +156,10 @@ public class Payment extends javax.swing.JFrame {
                 "Month", "Amount", "Payment Method"
             }
         ));
-        jTable1.setGridColor(new java.awt.Color(51, 51, 51));
-        jTable1.setSelectionBackground(new java.awt.Color(51, 51, 51));
-        jTable1.setSelectionForeground(new java.awt.Color(51, 51, 51));
-        jScrollPane1.setViewportView(jTable1);
+        tblPayment.setGridColor(new java.awt.Color(51, 51, 51));
+        tblPayment.setSelectionBackground(new java.awt.Color(51, 51, 51));
+        tblPayment.setSelectionForeground(new java.awt.Color(51, 51, 51));
+        jScrollPane1.setViewportView(tblPayment);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 320, 300));
 
@@ -369,7 +385,7 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblPayment;
     private javax.swing.JTextField txtAmount;
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtID;
