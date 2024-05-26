@@ -35,7 +35,7 @@ public class ControllerNewMember implements ActionListener{
                 this.cliente= this.member.getNewMember();
                 if (this.validarCampos(cliente)) {
                     Menu.getMensaje(this.Rcliente.agregarCliente(cliente));
-                    this.Rcliente.appendToJson(cliente);
+                    this.member.limpiar();
                 }
                 break;
             case "X":

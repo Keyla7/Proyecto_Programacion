@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Modelo.User;
 import Vista.Menu;
 import Vista.Principal;
 import java.awt.event.ActionEvent;
@@ -36,5 +37,13 @@ public class ControllerLogin implements ActionListener{
         }
     }
     
-    
+    public boolean validarCampos(User user) {
+        if (user.getIdUser()==0) {
+            Menu.getMensaje("Por favor, digite su ID");
+            return false;
+        } else if (user.getPassword().isEmpty()) {
+            Menu.getMensaje("Por favor, digite su contraseña");
+        }
+        return true;
+    }
 }

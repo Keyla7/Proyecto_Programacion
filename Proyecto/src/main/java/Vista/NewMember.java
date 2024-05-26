@@ -38,7 +38,7 @@ public class NewMember extends javax.swing.JFrame {
         double altura = Double.parseDouble(txtHeight.getText());
         double peso = Double.parseDouble(txtWeight.getText());
 
-        return new Cliente(Integer.parseInt(this.txtID.getText()), this.txtNombre.getText(), this.txtApellido.getText(), Integer.parseInt(this.txtEdad.getText()), Integer.parseInt(this.txtTelefono.getText()), this.cBoxCategory.getActionCommand(), this.cBoxPayment.getActionCommand(), Double.parseDouble(this.txtHeight.getText()), Double.parseDouble(this.txtWeight.getText()));
+        return new Cliente(id, nombre, apellido, edad, telefono, comboCategory, comboPlan, altura, peso);
     }
 
     public void cargarCombo(String[] listaOperaciones) {
@@ -54,6 +54,16 @@ public class NewMember extends javax.swing.JFrame {
     
     public String devolverCombo2(){
         return this.cBoxPayment.getSelectedItem().toString();
+    }
+    
+    public void limpiar(){
+        this.txtApellido.setText("");
+        this.txtEdad.setText("");
+        this.txtHeight.setText("");
+        this.txtID.setText("");
+        this.txtNombre.setText("");
+        this.txtTelefono.setText("");
+        this.txtWeight.setText("");
     }
 
     /**

@@ -30,7 +30,7 @@ public class RegistroCliente {
     public String agregarCliente(Cliente cliente) {
         if (cliente != null) {
             if (buscarCliente(cliente.getId()) == null) {
-                this.listaClientes.add(cliente);
+                this.appendToJson(cliente);
                 mensaje = "Cliente agregado correctamente";
             } else {
                 mensaje = "Ya existe un cliente con el id '"+cliente.getId()+"'";
