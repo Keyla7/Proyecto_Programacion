@@ -8,6 +8,7 @@ import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -19,15 +20,27 @@ import java.util.ArrayList;
  */
 public class RegistroUser {
 
-    ArrayList<User> users;
-    String filePath = "Users.csv";
+    ArrayList<User> usuariosRegistrados;
+    String filePath = "usuariosRegistrados.csv";
 
-    public static void writeCSV(ArrayList<User> users, String rutaArchivo) throws IOException {
-        try ( CSVWriter writer = new CSVWriter(new FileWriter(rutaArchivo))) {
+    public RegistroUser() {
+        File file = new File(filePath);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+                System.out.println("Archivo creado: " + file.getAbsolutePath());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void writeCSV(ArrayList<User> usuariosRegistrados, String rutaArchivo) throws IOException {
+        try (CSVWriter writer = new CSVWriter(new FileWriter(rutaArchivo))) {
             StatefulBeanToCsv<User> beanToCsv = new StatefulBeanToCsvBuilder<User>(writer).build();
 
             try {
-                beanToCsv.write(users);
+                beanToCsv.write(usuariosRegistrados);
 
             } catch (CsvDataTypeMismatchException ex) {
             } catch (CsvRequiredFieldEmptyException ex) {
@@ -36,7 +49,7 @@ public class RegistroUser {
     }
 
     public static ArrayList<User> readCSV(String rutaArchivo) throws IOException {
-        try ( CSVReader reader = new CSVReader(new FileReader(rutaArchivo))) {
+        try (CSVReader reader = new CSVReader(new FileReader(rutaArchivo))) {
             // Configurar el lector CSV
             CsvToBean<User> csvToBean = new CsvToBeanBuilder<User>(reader)
                     .withType(User.class)
@@ -48,11 +61,11 @@ public class RegistroUser {
     }
 
     public String addUser(User user) throws IOException {
-        users = readCSV(filePath);
+        usuariosRegistrados = readCSV(filePath);
         if (user != null) {
             if (searchUser(user.getIdUser()) == null) {
-                users.add(user);
-                writeCSV(users, filePath);
+                usuariosRegistrados.add(user);
+                writeCSV(usuariosRegistrados, filePath);
                 return "Usuario agregado correctamente";
             } else {
                 return "Ya existe ese usuario ";
@@ -63,13 +76,23 @@ public class RegistroUser {
     }
 
     private User searchUser(int idUser) throws IOException {
-        users = readCSV(filePath);
-        for (User user : users) {
+        usuariosRegistrados = readCSV(filePath);
+        for (User user : usuariosRegistrados) {
             if (user.getIdUser() == idUser) {
                 return user;
             }
         }
         return null;
+    }
+
+    public boolean verificacionU(User user) throws IOException {
+        ArrayList<User> usuariosRegistrados = readCSV(filePath);
+        for (User u : usuariosRegistrados) {
+            if (u.getIdUser() == user.getIdUser() && u.getPassword().equals(user.getPassword())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

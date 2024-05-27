@@ -37,7 +37,7 @@ public class NewMember extends javax.swing.JFrame {
         String comboPlan = (String) cBoxPayment.getSelectedItem();
         double altura = Double.parseDouble(txtHeight.getText());
         double peso = Double.parseDouble(txtWeight.getText());
-
+        
         return new Cliente(id, nombre, apellido, edad, telefono, comboCategory, comboPlan, altura, peso);
     }
 
@@ -51,12 +51,12 @@ public class NewMember extends javax.swing.JFrame {
     public String devolverCombo() {
         return this.cBoxCategory.getSelectedItem().toString();
     }
-    
-    public String devolverCombo2(){
+
+    public String devolverCombo2() {
         return this.cBoxPayment.getSelectedItem().toString();
     }
-    
-    public void limpiar(){
+
+    public void limpiar() {
         this.txtApellido.setText("");
         this.txtEdad.setText("");
         this.txtHeight.setText("");
@@ -64,6 +64,7 @@ public class NewMember extends javax.swing.JFrame {
         this.txtNombre.setText("");
         this.txtTelefono.setText("");
         this.txtWeight.setText("");
+        
     }
 
     /**
@@ -92,9 +93,6 @@ public class NewMember extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtEdad = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
-        jLabel7 = new javax.swing.JLabel();
-        txtTelefono = new javax.swing.JTextField();
-        jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
@@ -109,6 +107,9 @@ public class NewMember extends javax.swing.JFrame {
         txtWeight = new javax.swing.JTextField();
         jSeparator10 = new javax.swing.JSeparator();
         btCheckIn = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        txtTelefono = new javax.swing.JTextField();
+        jSeparator11 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -226,29 +227,10 @@ public class NewMember extends javax.swing.JFrame {
         jSeparator4.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 220, 10));
 
-        jLabel7.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel7.setText("Phone Number");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
-
-        txtTelefono.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
-        txtTelefono.setForeground(new java.awt.Color(204, 204, 204));
-        txtTelefono.setText("0000-0000");
-        txtTelefono.setBorder(null);
-        txtTelefono.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtTelefonoMouseClicked(evt);
-            }
-        });
-        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 240, 20));
-
-        jSeparator5.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 220, -1));
-
         jSeparator6.setBackground(new java.awt.Color(51, 51, 51));
         jSeparator6.setForeground(new java.awt.Color(51, 51, 51));
         jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 10, 300));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 10, 310));
 
         jLabel8.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
@@ -327,7 +309,26 @@ public class NewMember extends javax.swing.JFrame {
                 btCheckInMouseExited(evt);
             }
         });
-        jPanel1.add(btCheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, 110, 40));
+        jPanel1.add(btCheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, 110, 40));
+
+        jLabel14.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel14.setText("Phone Number");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
+
+        txtTelefono.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
+        txtTelefono.setForeground(new java.awt.Color(204, 204, 204));
+        txtTelefono.setText("0000-0000");
+        txtTelefono.setBorder(null);
+        txtTelefono.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTelefonoMouseClicked(evt);
+            }
+        });
+        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 240, 20));
+
+        jSeparator11.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 220, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -337,7 +338,9 @@ public class NewMember extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -492,37 +495,6 @@ public class NewMember extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtEdadMouseClicked
 
-    private void txtTelefonoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoMouseClicked
-        if (txtTelefono.getText().equals("0000-0000")) {
-            txtTelefono.setText("");
-            txtTelefono.setForeground(Color.DARK_GRAY);
-        }
-        if (txtNombre.getText().isEmpty()) {
-            txtNombre.setText("Ingrese su nombre");
-            txtNombre.setForeground(Color.LIGHT_GRAY);
-        }
-        if (txtApellido.getText().isEmpty()) {
-            txtApellido.setText("Ingrese su apellido");
-            txtApellido.setForeground(Color.LIGHT_GRAY);
-        }
-        if (txtID.getText().isEmpty()) {
-            txtID.setText("Ingrese su ID");
-            txtID.setForeground(Color.LIGHT_GRAY);
-        }
-        if (txtEdad.getText().isEmpty()) {
-            txtEdad.setText("Ingrese su edad");
-            txtEdad.setForeground(Color.LIGHT_GRAY);
-        }
-        if (txtHeight.getText().isEmpty()) {
-            txtHeight.setText("Ingrese su altura");
-            txtHeight.setForeground(Color.LIGHT_GRAY);
-        }
-        if (txtWeight.getText().isEmpty()) {
-            txtWeight.setText("Ingrese su peso");
-            txtWeight.setForeground(Color.LIGHT_GRAY);
-        }
-    }//GEN-LAST:event_txtTelefonoMouseClicked
-
     private void txtHeightMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtHeightMouseClicked
         if (txtHeight.getText().equals("Ingrese su altura")) {
             txtHeight.setText("");
@@ -585,6 +557,10 @@ public class NewMember extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtWeightMouseClicked
 
+    private void txtTelefonoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -598,21 +574,21 @@ public class NewMember extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;

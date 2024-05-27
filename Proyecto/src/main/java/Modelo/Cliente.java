@@ -21,7 +21,7 @@ public class Cliente {
     
     public static final String[] TITULOS_CLIENTE={"ID","Nombre","Apellido","Edad","Telefono", "Categoria", "PaymentPlan", "Altura","Peso"};
 
-    public Cliente() {
+    public Cliente(int id1, String nombre1, String apellido1, int edad1, int telefono1, String comboCategory, String comboPlan, double altura1, double peso1, char[] password) {
     }
 
     public Cliente(int id, String nombre, String apellido, int edad, int telefono, String categoria, String paymentPlan, double altura, double peso) {

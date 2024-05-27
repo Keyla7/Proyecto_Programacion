@@ -9,16 +9,19 @@ package Modelo;
  * @author PC
  */
 public class User {
-    
+
     int idUser;
     String password;
+
+    public User() {
+    }
 
     public User(int idUser, String password) {
         this.idUser = idUser;
         this.password = password;
     }
-    
-    public String toCSV(){
+
+    public String toCSV() {
         return this.password + "," + this.idUser;
     }
 
@@ -36,5 +39,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }  
+    }
 }

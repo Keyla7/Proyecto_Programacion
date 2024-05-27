@@ -6,6 +6,7 @@ package Controlador;
 
 import Modelo.Cliente;
 import Modelo.RegistroCliente;
+import Modelo.RegistroUser;
 import Vista.Menu;
 import Vista.NewMember;
 import java.awt.event.ActionEvent;
@@ -20,12 +21,14 @@ public class ControllerNewMember implements ActionListener{
     private Cliente cliente;
     private Menu menu;
     private RegistroCliente Rcliente;
+   
 
     public ControllerNewMember() {
         this.member = new NewMember();
         this.Rcliente= new RegistroCliente();
         this.member.setVisible(true);
         this.member.escuchar(this);
+        
     }
     
     @Override

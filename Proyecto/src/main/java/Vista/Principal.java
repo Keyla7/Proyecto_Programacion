@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import Modelo.User;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 
@@ -22,6 +23,20 @@ public class Principal extends javax.swing.JFrame {
     public void escuchar(ActionListener manejador){
         this.btIngresar.addActionListener(manejador);
         this.btSalir.addActionListener(manejador);
+    }
+    
+    public User getUserData(){
+        int idUser= Integer.parseInt(txtID.getText());
+        String password= new String(fieldPass.getPassword());
+        
+        User u = new User(idUser, password);
+        u.setIdUser(idUser);
+        u.setPassword(password);
+        
+        return u;
+        
+        
+    
     }
     /**
      * This method is called from within the constructor to initialize the form.
