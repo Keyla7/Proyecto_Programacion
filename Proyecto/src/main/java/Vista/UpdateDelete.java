@@ -82,6 +82,8 @@ public class UpdateDelete extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jSeparator7.setBackground(new java.awt.Color(51, 51, 51));
+        jSeparator7.setForeground(new java.awt.Color(51, 51, 51));
         jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 10, 260));
 
@@ -157,6 +159,9 @@ public class UpdateDelete extends javax.swing.JFrame {
         txtNombre.setBorder(null);
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 270, 20));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 270, 0));
+
+        jSeparator3.setBackground(new java.awt.Color(51, 51, 51));
+        jSeparator3.setForeground(new java.awt.Color(51, 51, 51));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 270, 10));
 
         jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -170,6 +175,9 @@ public class UpdateDelete extends javax.swing.JFrame {
         txtApellido.setText("..........");
         txtApellido.setBorder(null);
         jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 270, 20));
+
+        jSeparator4.setBackground(new java.awt.Color(51, 51, 51));
+        jSeparator4.setForeground(new java.awt.Color(51, 51, 51));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 270, 10));
 
         jLabel5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -183,6 +191,9 @@ public class UpdateDelete extends javax.swing.JFrame {
         txtEdad.setText("..........");
         txtEdad.setBorder(null);
         jPanel1.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 270, 20));
+
+        jSeparator5.setBackground(new java.awt.Color(51, 51, 51));
+        jSeparator5.setForeground(new java.awt.Color(51, 51, 51));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 270, 10));
 
         jLabel6.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -196,6 +207,9 @@ public class UpdateDelete extends javax.swing.JFrame {
         txtTelefono.setText("0000-0000");
         txtTelefono.setBorder(null);
         jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 270, 20));
+
+        jSeparator6.setBackground(new java.awt.Color(51, 51, 51));
+        jSeparator6.setForeground(new java.awt.Color(51, 51, 51));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 270, 10));
 
         jLabel7.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -209,6 +223,9 @@ public class UpdateDelete extends javax.swing.JFrame {
         txtMember.setText("..........");
         txtMember.setBorder(null);
         jPanel1.add(txtMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 190, 20));
+
+        jSeparator8.setBackground(new java.awt.Color(51, 51, 51));
+        jSeparator8.setForeground(new java.awt.Color(51, 51, 51));
         jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 190, 10));
 
         jLabel8.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -222,6 +239,9 @@ public class UpdateDelete extends javax.swing.JFrame {
         txtPayment.setText("..........");
         txtPayment.setBorder(null);
         jPanel1.add(txtPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 200, 20));
+
+        jSeparator9.setBackground(new java.awt.Color(51, 51, 51));
+        jSeparator9.setForeground(new java.awt.Color(51, 51, 51));
         jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 200, 10));
 
         jLabel9.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -235,6 +255,9 @@ public class UpdateDelete extends javax.swing.JFrame {
         txtHeight.setText("cm");
         txtHeight.setBorder(null);
         jPanel1.add(txtHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 200, 20));
+
+        jSeparator10.setBackground(new java.awt.Color(51, 51, 51));
+        jSeparator10.setForeground(new java.awt.Color(51, 51, 51));
         jPanel1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 200, 10));
 
         jLabel10.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -248,6 +271,9 @@ public class UpdateDelete extends javax.swing.JFrame {
         txtWeight.setText("Kg");
         txtWeight.setBorder(null);
         jPanel1.add(txtWeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 200, 20));
+
+        jSeparator11.setBackground(new java.awt.Color(51, 51, 51));
+        jSeparator11.setForeground(new java.awt.Color(51, 51, 51));
         jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 200, 10));
 
         jPanel2.setBackground(new java.awt.Color(255, 51, 51));

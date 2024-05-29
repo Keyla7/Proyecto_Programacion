@@ -50,6 +50,7 @@ public class Payment extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jSeparator8 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
         btSalir3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -83,6 +84,10 @@ public class Payment extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jSeparator8.setBackground(new java.awt.Color(51, 51, 51));
+        jSeparator8.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 210, 10));
 
         jLabel9.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 51, 51));
@@ -197,7 +202,7 @@ public class Payment extends javax.swing.JFrame {
         });
         jPanel1.add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 210, 20));
 
-        jSeparator3.setBackground(new java.awt.Color(51, 51, 51));
+        jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator3.setForeground(new java.awt.Color(51, 51, 51));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 210, 10));
 
@@ -390,6 +395,7 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JTable tblPayment;
     private javax.swing.JTextField txtAmount;
     private javax.swing.JTextField txtDate;
