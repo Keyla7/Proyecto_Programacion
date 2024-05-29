@@ -34,18 +34,17 @@ public class ListMember extends javax.swing.JFrame {
             Object[] rowData = {
                 c.getNombre(),
                 c.getApellido(),
-                c.getEdad(),
                 c.getId(),
-                c.getAltura(),
+                c.getEdad(),
                 c.getTelefono(),
                 c.getCategoria(),
                 c.getPaymentPlan(),
+                c.getAltura(),
                 c.getPeso()
-            
             };
             model.addRow(rowData);
         }
-        setVisible(true);
+        //setVisible(true);
     }
     
     public void escuchar(ActionListener manejador) {
@@ -99,31 +98,31 @@ public class ListMember extends javax.swing.JFrame {
                 btSalir4MouseExited(evt);
             }
         });
-        jPanel1.add(btSalir4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 30, 30));
+        jPanel1.add(btSalir4, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 30, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg3.jpeg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 80));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg3.jpeg"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 330, 80));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 440, 80));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Member ID", "First name", "Last Name", "Age", "Phone number", "Membership Plan", "Payment Plan"
+                "First Name", "Last name", "ID", "Age", "Phone number", "Membership Category", "Payment Plan", "Height", "Weight"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 740, 320));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 850, 320));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

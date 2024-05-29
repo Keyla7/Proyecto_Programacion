@@ -28,8 +28,6 @@ public class ControllerNewMember implements ActionListener{
         this.Rcliente= new RegistroCliente();
         this.member.setVisible(true);
         this.member.escuchar(this);
-        this.controllerList= new ControllerList();
-        
     }
     
     @Override
@@ -40,6 +38,7 @@ public class ControllerNewMember implements ActionListener{
                 if (this.validarCampos(cliente)) {
                     Menu.getMensaje(this.Rcliente.agregarCliente(cliente));
                     this.member.limpiar();
+                    this.controllerList= new ControllerList();
                     this.controllerList.actualizarTabla();
                 }
                 break;
