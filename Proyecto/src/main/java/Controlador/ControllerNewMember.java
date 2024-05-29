@@ -7,6 +7,7 @@ package Controlador;
 import Modelo.Cliente;
 import Modelo.RegistroCliente;
 import Modelo.RegistroUser;
+import Vista.ListMember;
 import Vista.Menu;
 import Vista.NewMember;
 import java.awt.event.ActionEvent;
@@ -22,6 +23,8 @@ public class ControllerNewMember implements ActionListener{
     private Menu menu;
     private RegistroCliente Rcliente;
     private ControllerList controllerList;
+    private ListMember lMemeber;
+    
 
     public ControllerNewMember() {
         this.member = new NewMember();
@@ -38,8 +41,11 @@ public class ControllerNewMember implements ActionListener{
                 if (this.validarCampos(cliente)) {
                     Menu.getMensaje(this.Rcliente.agregarCliente(cliente));
                     this.member.limpiar();
+                     this.controllerList.actualizarTabla();
                     this.controllerList= new ControllerList();
-                    this.controllerList.actualizarTabla();
+                   
+                    
+                    
                 }
                 break;
             case "X":
