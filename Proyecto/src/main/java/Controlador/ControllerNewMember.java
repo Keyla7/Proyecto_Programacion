@@ -21,13 +21,14 @@ public class ControllerNewMember implements ActionListener{
     private Cliente cliente;
     private Menu menu;
     private RegistroCliente Rcliente;
-   
+    private ControllerList controllerList;
 
     public ControllerNewMember() {
         this.member = new NewMember();
         this.Rcliente= new RegistroCliente();
         this.member.setVisible(true);
         this.member.escuchar(this);
+        this.controllerList= new ControllerList();
         
     }
     
@@ -39,6 +40,7 @@ public class ControllerNewMember implements ActionListener{
                 if (this.validarCampos(cliente)) {
                     Menu.getMensaje(this.Rcliente.agregarCliente(cliente));
                     this.member.limpiar();
+                    this.controllerList.actualizarTabla();
                 }
                 break;
             case "X":

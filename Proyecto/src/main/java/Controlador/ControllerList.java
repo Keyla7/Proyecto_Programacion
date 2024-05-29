@@ -4,9 +4,12 @@
  */
 package Controlador;
 
+import Modelo.Cliente;
+import Modelo.RegistroCliente;
 import Vista.ListMember;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 /**
  *
@@ -14,11 +17,14 @@ import java.awt.event.ActionListener;
  */
 public class ControllerList implements ActionListener{
     private ListMember list;
+    private RegistroCliente registroC;
 
     public ControllerList() {
         this.list = new ListMember();
         this.list.escuchar(this);
         this.list.setVisible(true);
+        this.registroC= new RegistroCliente();
+      
     }
 
     @Override
@@ -29,6 +35,12 @@ public class ControllerList implements ActionListener{
                 break;
 
         }
+    }
+    
+    public void actualizarTabla(){
+        //recargue datos desde el JSON
+    list.clearTable();
+    List<Cliente> listaClientes= registroC.readFromJson();
     }
     
     

@@ -49,6 +49,7 @@ public class ControllerLogin implements ActionListener {
                             login.setVisible(false);
                             JOptionPane.showMessageDialog(login, "Credenciales incorrectas, por favor registrese");
                             registrarNuevoMiembro();
+                            login.setVisible(true);
                         }
                     } catch (IOException ex) {
                         ex.printStackTrace();

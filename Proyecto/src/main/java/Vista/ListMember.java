@@ -4,23 +4,58 @@
  */
 package Vista;
 
+import Modelo.Cliente;
+import Modelo.RegistroCliente;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author kylea
  */
 public class ListMember extends javax.swing.JFrame {
+    
+    private RegistroCliente registroC;
 
     /**
      * Creates new form ListMember
      */
+    
+    
     public ListMember() {
         initComponents();
+        registroC = new RegistroCliente();
+        ArrayList<Cliente> listaClientes = registroC.readFromJson();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        for (Cliente c : listaClientes) {
+            Object[] rowData = {
+                c.getNombre(),
+                c.getApellido(),
+                c.getEdad(),
+                c.getId(),
+                c.getAltura(),
+                c.getTelefono(),
+                c.getCategoria(),
+                c.getPaymentPlan(),
+                c.getPeso()
+            
+            };
+            model.addRow(rowData);
+        }
+        setVisible(true);
     }
-    public void escuchar(ActionListener manejador){
+    
+    public void escuchar(ActionListener manejador) {
         this.btSalir4.addActionListener(manejador);
+    }
+    
+    public void clearTable() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        
     }
 
     /**
@@ -126,6 +161,6 @@ public class ListMember extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
