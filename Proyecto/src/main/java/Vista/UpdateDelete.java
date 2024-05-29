@@ -53,22 +53,22 @@ public class UpdateDelete extends javax.swing.JFrame {
         txtApellido = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
-        txtNombre1 = new javax.swing.JTextField();
+        txtEdad = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
-        txtNombre2 = new javax.swing.JTextField();
+        txtMember = new javax.swing.JTextField();
         jSeparator8 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
-        txtNombre3 = new javax.swing.JTextField();
+        txtPayment = new javax.swing.JTextField();
         jSeparator9 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
-        txtNombre4 = new javax.swing.JTextField();
+        txtHeight = new javax.swing.JTextField();
         jSeparator10 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
-        txtNombre5 = new javax.swing.JTextField();
+        txtWeight = new javax.swing.JTextField();
         jSeparator11 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
         btUpdate = new javax.swing.JButton();
@@ -112,16 +112,22 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel2.setText("ID");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
+        txtID.setBackground(new java.awt.Color(255, 255, 255));
         txtID.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtID.setForeground(new java.awt.Color(204, 204, 204));
         txtID.setText("Ingrese el ID");
         txtID.setBorder(null);
+        txtID.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtIDMouseClicked(evt);
+            }
+        });
         txtID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIDActionPerformed(evt);
             }
         });
-        jPanel1.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 140, 20));
+        jPanel1.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 210, 20));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 210, 10));
 
         btSearch.setBackground(new java.awt.Color(255, 51, 51));
@@ -144,6 +150,7 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel3.setText("First Name");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(204, 204, 204));
         txtNombre.setText("..........");
@@ -157,6 +164,7 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel4.setText("Last Name");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
+        txtApellido.setBackground(new java.awt.Color(255, 255, 255));
         txtApellido.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtApellido.setForeground(new java.awt.Color(204, 204, 204));
         txtApellido.setText("..........");
@@ -169,11 +177,12 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel5.setText("Edad");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
 
-        txtNombre1.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
-        txtNombre1.setForeground(new java.awt.Color(204, 204, 204));
-        txtNombre1.setText("..........");
-        txtNombre1.setBorder(null);
-        jPanel1.add(txtNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 270, 20));
+        txtEdad.setBackground(new java.awt.Color(255, 255, 255));
+        txtEdad.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
+        txtEdad.setForeground(new java.awt.Color(204, 204, 204));
+        txtEdad.setText("..........");
+        txtEdad.setBorder(null);
+        jPanel1.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 270, 20));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 270, 10));
 
         jLabel6.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -181,6 +190,7 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel6.setText("Telefono");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
+        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
         txtTelefono.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtTelefono.setForeground(new java.awt.Color(204, 204, 204));
         txtTelefono.setText("0000-0000");
@@ -193,11 +203,12 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel7.setText("Membership Category");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
 
-        txtNombre2.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
-        txtNombre2.setForeground(new java.awt.Color(204, 204, 204));
-        txtNombre2.setText("..........");
-        txtNombre2.setBorder(null);
-        jPanel1.add(txtNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 190, 20));
+        txtMember.setBackground(new java.awt.Color(255, 255, 255));
+        txtMember.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
+        txtMember.setForeground(new java.awt.Color(204, 204, 204));
+        txtMember.setText("..........");
+        txtMember.setBorder(null);
+        jPanel1.add(txtMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 190, 20));
         jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 190, 10));
 
         jLabel8.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -205,11 +216,12 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel8.setText("Payment Plan");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, -1, -1));
 
-        txtNombre3.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
-        txtNombre3.setForeground(new java.awt.Color(204, 204, 204));
-        txtNombre3.setText("..........");
-        txtNombre3.setBorder(null);
-        jPanel1.add(txtNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 200, 20));
+        txtPayment.setBackground(new java.awt.Color(255, 255, 255));
+        txtPayment.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
+        txtPayment.setForeground(new java.awt.Color(204, 204, 204));
+        txtPayment.setText("..........");
+        txtPayment.setBorder(null);
+        jPanel1.add(txtPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 200, 20));
         jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 200, 10));
 
         jLabel9.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -217,11 +229,12 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel9.setText("Height");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, -1));
 
-        txtNombre4.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
-        txtNombre4.setForeground(new java.awt.Color(204, 204, 204));
-        txtNombre4.setText("cm");
-        txtNombre4.setBorder(null);
-        jPanel1.add(txtNombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 200, 20));
+        txtHeight.setBackground(new java.awt.Color(255, 255, 255));
+        txtHeight.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
+        txtHeight.setForeground(new java.awt.Color(204, 204, 204));
+        txtHeight.setText("cm");
+        txtHeight.setBorder(null);
+        jPanel1.add(txtHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 200, 20));
         jPanel1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 200, 10));
 
         jLabel10.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -229,13 +242,15 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel10.setText("Weight");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, -1, -1));
 
-        txtNombre5.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
-        txtNombre5.setForeground(new java.awt.Color(204, 204, 204));
-        txtNombre5.setText("Kg");
-        txtNombre5.setBorder(null);
-        jPanel1.add(txtNombre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 200, 20));
+        txtWeight.setBackground(new java.awt.Color(255, 255, 255));
+        txtWeight.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
+        txtWeight.setForeground(new java.awt.Color(204, 204, 204));
+        txtWeight.setText("Kg");
+        txtWeight.setBorder(null);
+        jPanel1.add(txtWeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 200, 20));
         jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 200, 10));
 
+        jPanel2.setBackground(new java.awt.Color(255, 51, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btUpdate.setBackground(new java.awt.Color(255, 51, 51));
@@ -363,6 +378,13 @@ public class UpdateDelete extends javax.swing.JFrame {
         btSalir2.setForeground(new java.awt.Color(222, 222, 222));
     }//GEN-LAST:event_btSalir2MouseExited
 
+    private void txtIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIDMouseClicked
+       if (txtID.getText().equals("Ingrese el ID")) {
+            txtID.setText("");
+            txtID.setForeground(Color.DARK_GRAY);
+        }
+    }//GEN-LAST:event_txtIDMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -398,13 +420,13 @@ public class UpdateDelete extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtEdad;
+    private javax.swing.JTextField txtHeight;
     private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtMember;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtNombre1;
-    private javax.swing.JTextField txtNombre2;
-    private javax.swing.JTextField txtNombre3;
-    private javax.swing.JTextField txtNombre4;
-    private javax.swing.JTextField txtNombre5;
+    private javax.swing.JTextField txtPayment;
     private javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField txtWeight;
     // End of variables declaration//GEN-END:variables
 }

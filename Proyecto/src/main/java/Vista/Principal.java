@@ -23,6 +23,7 @@ public class Principal extends javax.swing.JFrame {
     public void escuchar(ActionListener manejador){
         this.btIngresar.addActionListener(manejador);
         this.btSalir.addActionListener(manejador);
+        this.btRegistro.addActionListener(manejador);
     }
     
     public User getUserData(){
@@ -34,9 +35,7 @@ public class Principal extends javax.swing.JFrame {
         u.setPassword(password);
         
         return u;
-        
-        
-    
+
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,6 +61,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btIngresar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        btRegistro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -87,6 +87,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 370));
 
         jLabel4.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("INICIAR SESION");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, -1, -1));
 
@@ -95,6 +96,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel6.setText("ID");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, -1));
 
+        txtID.setBackground(new java.awt.Color(255, 255, 255));
         txtID.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtID.setForeground(new java.awt.Color(204, 204, 204));
         txtID.setText("Ingrese su ID");
@@ -108,6 +110,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 200, -1));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 200, -1));
 
+        fieldPass.setBackground(new java.awt.Color(255, 255, 255));
         fieldPass.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         fieldPass.setForeground(new java.awt.Color(204, 204, 204));
         fieldPass.setText("********");
@@ -119,6 +122,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel1.add(fieldPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 200, -1));
 
+        btSalir.setBackground(new java.awt.Color(255, 255, 255));
         btSalir.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
         btSalir.setForeground(new java.awt.Color(51, 51, 51));
         btSalir.setText("X");
@@ -161,6 +165,23 @@ public class Principal extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(153, 153, 153));
         jLabel7.setText("¿Olvidó su contraseña?");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, -1));
+
+        btRegistro.setBackground(new java.awt.Color(255, 51, 51));
+        btRegistro.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btRegistro.setForeground(new java.awt.Color(51, 51, 51));
+        btRegistro.setText("+");
+        btRegistro.setActionCommand("add");
+        btRegistro.setBorder(null);
+        btRegistro.setFocusPainted(false);
+        btRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btRegistroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btRegistroMouseExited(evt);
+            }
+        });
+        jPanel1.add(btRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 60, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -223,6 +244,16 @@ public class Principal extends javax.swing.JFrame {
         btSalir.setForeground(new java.awt.Color(51, 51, 51));
     }//GEN-LAST:event_btSalirMouseExited
 
+    private void btRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btRegistroMouseEntered
+        btRegistro.setBackground(Color.DARK_GRAY);
+        btRegistro.setForeground(new java.awt.Color(222, 222, 222));
+    }//GEN-LAST:event_btRegistroMouseEntered
+
+    private void btRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btRegistroMouseExited
+        btRegistro.setBackground(new java.awt.Color(255, 51, 51));
+        btRegistro.setForeground(new java.awt.Color(51, 51, 51));
+    }//GEN-LAST:event_btRegistroMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -230,6 +261,7 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btIngresar;
+    private javax.swing.JButton btRegistro;
     private javax.swing.JButton btSalir;
     private javax.swing.JPasswordField fieldPass;
     private javax.swing.JLabel jLabel1;

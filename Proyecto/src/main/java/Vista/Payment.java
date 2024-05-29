@@ -108,6 +108,7 @@ public class Payment extends javax.swing.JFrame {
         jLabel2.setText("ID");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
+        txtID.setBackground(new java.awt.Color(255, 255, 255));
         txtID.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtID.setForeground(new java.awt.Color(204, 204, 204));
         txtID.setText("Ingrese el ID");
@@ -179,6 +180,7 @@ public class Payment extends javax.swing.JFrame {
         jLabel4.setText("Date");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
+        txtDate.setBackground(new java.awt.Color(255, 255, 255));
         txtDate.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtDate.setForeground(new java.awt.Color(204, 204, 204));
         txtDate.setText("DD/MM/YY");
@@ -204,6 +206,7 @@ public class Payment extends javax.swing.JFrame {
         jLabel5.setText("Nombre");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(204, 204, 204));
         txtNombre.setText("..........");
@@ -224,6 +227,7 @@ public class Payment extends javax.swing.JFrame {
         jLabel6.setText("Telefono");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
+        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
         txtTelefono.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtTelefono.setForeground(new java.awt.Color(204, 204, 204));
         txtTelefono.setText("0000-0000");
@@ -262,6 +266,7 @@ public class Payment extends javax.swing.JFrame {
         jLabel8.setText("Amount to Pay");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
+        txtAmount.setBackground(new java.awt.Color(255, 255, 255));
         txtAmount.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtAmount.setForeground(new java.awt.Color(204, 204, 204));
         txtAmount.setText("-----");
@@ -271,7 +276,7 @@ public class Payment extends javax.swing.JFrame {
                 txtAmountActionPerformed(evt);
             }
         });
-        jPanel1.add(txtAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 140, 20));
+        jPanel1.add(txtAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 210, 20));
 
         jSeparator7.setBackground(new java.awt.Color(51, 51, 51));
         jSeparator7.setForeground(new java.awt.Color(51, 51, 51));

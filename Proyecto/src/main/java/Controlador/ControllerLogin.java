@@ -45,18 +45,25 @@ public class ControllerLogin implements ActionListener {
                             //si es valido mostrar menu
                             new ControllerMenu();
                             login.setVisible(false);
-                        } else {
+                        } /*else {
                             login.setVisible(false);
                             JOptionPane.showMessageDialog(login, "Credenciales incorrectas, por favor registrese");
                             registrarNuevoMiembro();
                             login.setVisible(true);
-                        }
+                        }*/ //Esta funciona ya no es necesaria
                     } catch (IOException ex) {
                         ex.printStackTrace();
                         JOptionPane.showMessageDialog(login, "Error al leer el archivo de usuario");
                     }
 
                 }
+                break;
+            case "add":
+                try {
+                JOptionPane.showMessageDialog(null, registroUser.addUser(this.login.getUserData()));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
                 break;
             case "x":
                 System.exit(0);
@@ -74,7 +81,7 @@ public class ControllerLogin implements ActionListener {
         return true;
     }
 
-    private void registrarNuevoMiembro() {
+    /*private void registrarNuevoMiembro() {
         String id= JOptionPane.showInputDialog(null, "Ingrese su ID:");
         String password= JOptionPane.showInputDialog(null, "Ingrese la contraseña deseada:");
         
@@ -92,5 +99,5 @@ public class ControllerLogin implements ActionListener {
         }
         
        
-    }
+    }*/ // Este metodo tampoco
 }

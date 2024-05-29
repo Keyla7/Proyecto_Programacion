@@ -57,13 +57,13 @@ public class NewMember extends javax.swing.JFrame {
     }
 
     public void limpiar() {
-        this.txtApellido.setText("");
-        this.txtEdad.setText("");
-        this.txtHeight.setText("");
-        this.txtID.setText("");
-        this.txtNombre.setText("");
-        this.txtTelefono.setText("");
-        this.txtWeight.setText("");
+        this.txtNombre.setText("Ingrese su nombre");
+        this.txtApellido.setText("Ingrese su apellido");
+         this.txtID.setText("Ingrese su ID");
+        this.txtEdad.setText("Ingrese su edad");
+        this.txtTelefono.setText("0000-0000");
+        this.txtHeight.setText("Ingrese su altura");
+        this.txtWeight.setText("Ingrese su peso");
         
     }
 
@@ -151,6 +151,7 @@ public class NewMember extends javax.swing.JFrame {
         jLabel3.setText("First Name");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(204, 204, 204));
         txtNombre.setText("Ingrese su nombre");
@@ -170,6 +171,7 @@ public class NewMember extends javax.swing.JFrame {
         jLabel4.setText("Last Name");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
+        txtApellido.setBackground(new java.awt.Color(255, 255, 255));
         txtApellido.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtApellido.setForeground(new java.awt.Color(204, 204, 204));
         txtApellido.setText("Ingrese su apellido");
@@ -189,6 +191,7 @@ public class NewMember extends javax.swing.JFrame {
         jLabel5.setText("ID");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
+        txtID.setBackground(new java.awt.Color(255, 255, 255));
         txtID.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtID.setForeground(new java.awt.Color(204, 204, 204));
         txtID.setText("Ingrese su ID");
@@ -208,6 +211,7 @@ public class NewMember extends javax.swing.JFrame {
         jLabel6.setText("Age");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
+        txtEdad.setBackground(new java.awt.Color(255, 255, 255));
         txtEdad.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtEdad.setForeground(new java.awt.Color(204, 204, 204));
         txtEdad.setText("Ingrese su edad");
@@ -263,6 +267,7 @@ public class NewMember extends javax.swing.JFrame {
         jLabel10.setText("Height");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, -1));
 
+        txtHeight.setBackground(new java.awt.Color(255, 255, 255));
         txtHeight.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtHeight.setForeground(new java.awt.Color(204, 204, 204));
         txtHeight.setText("Ingrese su altura");
@@ -282,6 +287,7 @@ public class NewMember extends javax.swing.JFrame {
         jLabel11.setText("Weight");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, -1, -1));
 
+        txtWeight.setBackground(new java.awt.Color(255, 255, 255));
         txtWeight.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtWeight.setForeground(new java.awt.Color(204, 204, 204));
         txtWeight.setText("Ingrese su peso");
@@ -316,6 +322,7 @@ public class NewMember extends javax.swing.JFrame {
         jLabel14.setText("Phone Number");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
 
+        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
         txtTelefono.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtTelefono.setForeground(new java.awt.Color(204, 204, 204));
         txtTelefono.setText("0000-0000");
@@ -558,7 +565,34 @@ public class NewMember extends javax.swing.JFrame {
     }//GEN-LAST:event_txtWeightMouseClicked
 
     private void txtTelefonoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoMouseClicked
-        // TODO add your handling code here:
+       if (txtTelefono.getText().equals("0000-0000")) {
+            txtTelefono.setText("");
+            txtTelefono.setForeground(Color.DARK_GRAY);
+        }
+        if (txtNombre.getText().isEmpty()) {
+            txtNombre.setText("Ingrese su nombre");
+            txtNombre.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtApellido.getText().isEmpty()) {
+            txtApellido.setText("Ingrese su apellido");
+            txtApellido.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtID.getText().isEmpty()) {
+            txtID.setText("Ingrese su ID");
+            txtID.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtEdad.getText().isEmpty()) {
+            txtEdad.setText("Ingrese su edad");
+            txtEdad.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtHeight.getText().isEmpty()) {
+            txtHeight.setText("Ingrese su altura");
+            txtHeight.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtWeight.getText().isEmpty()) {
+            txtWeight.setText("Ingrese su peso");
+            txtWeight.setForeground(Color.LIGHT_GRAY);
+        }
     }//GEN-LAST:event_txtTelefonoMouseClicked
 
     /**
