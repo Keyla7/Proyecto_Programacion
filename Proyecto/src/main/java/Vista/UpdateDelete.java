@@ -4,8 +4,10 @@
  */
 package Vista;
 
+import Modelo.Cliente;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import javax.swing.JTextField;
 
 /**
  *
@@ -19,13 +21,13 @@ public class UpdateDelete extends javax.swing.JFrame {
     public UpdateDelete() {
         initComponents();
     }
-    public void escuchar(ActionListener manejador){
+
+    public void escuchar(ActionListener manejador) {
         this.btUpdate.addActionListener(manejador);
         this.btDelete.addActionListener(manejador);
-        this.btReset.addActionListener(manejador);
         this.btSearch.addActionListener(manejador);
-        this.btSalir2.addActionListener(manejador);      
-    } 
+        this.btSalir2.addActionListener(manejador);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,7 +75,6 @@ public class UpdateDelete extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btUpdate = new javax.swing.JButton();
         btDelete = new javax.swing.JButton();
-        btReset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -114,7 +115,6 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel2.setText("ID");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
-        txtID.setBackground(new java.awt.Color(255, 255, 255));
         txtID.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtID.setForeground(new java.awt.Color(204, 204, 204));
         txtID.setText("Ingrese el ID");
@@ -152,7 +152,6 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel3.setText("First Name");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
-        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(204, 204, 204));
         txtNombre.setText("..........");
@@ -169,7 +168,6 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel4.setText("Last Name");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
-        txtApellido.setBackground(new java.awt.Color(255, 255, 255));
         txtApellido.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtApellido.setForeground(new java.awt.Color(204, 204, 204));
         txtApellido.setText("..........");
@@ -185,7 +183,6 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel5.setText("Edad");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
 
-        txtEdad.setBackground(new java.awt.Color(255, 255, 255));
         txtEdad.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtEdad.setForeground(new java.awt.Color(204, 204, 204));
         txtEdad.setText("..........");
@@ -201,7 +198,6 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel6.setText("Telefono");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
-        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
         txtTelefono.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtTelefono.setForeground(new java.awt.Color(204, 204, 204));
         txtTelefono.setText("0000-0000");
@@ -217,7 +213,6 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel7.setText("Membership Category");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
 
-        txtMember.setBackground(new java.awt.Color(255, 255, 255));
         txtMember.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtMember.setForeground(new java.awt.Color(204, 204, 204));
         txtMember.setText("..........");
@@ -233,7 +228,6 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel8.setText("Payment Plan");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, -1, -1));
 
-        txtPayment.setBackground(new java.awt.Color(255, 255, 255));
         txtPayment.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtPayment.setForeground(new java.awt.Color(204, 204, 204));
         txtPayment.setText("..........");
@@ -249,7 +243,6 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel9.setText("Height");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, -1));
 
-        txtHeight.setBackground(new java.awt.Color(255, 255, 255));
         txtHeight.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtHeight.setForeground(new java.awt.Color(204, 204, 204));
         txtHeight.setText("cm");
@@ -265,7 +258,6 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel10.setText("Weight");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, -1, -1));
 
-        txtWeight.setBackground(new java.awt.Color(255, 255, 255));
         txtWeight.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtWeight.setForeground(new java.awt.Color(204, 204, 204));
         txtWeight.setText("Kg");
@@ -309,26 +301,6 @@ public class UpdateDelete extends javax.swing.JFrame {
         });
         jPanel2.add(btDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 120, 30));
 
-        btReset.setBackground(new java.awt.Color(255, 51, 51));
-        btReset.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        btReset.setForeground(new java.awt.Color(51, 51, 51));
-        btReset.setText("Reset");
-        btReset.setBorder(null);
-        btReset.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btResetMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btResetMouseExited(evt);
-            }
-        });
-        btReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btResetActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 120, 30));
-
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 550, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -350,12 +322,8 @@ public class UpdateDelete extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDActionPerformed
 
-    private void btResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btResetActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btResetActionPerformed
-
     private void btUpdateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btUpdateMouseEntered
-       btUpdate.setBackground(Color.DARK_GRAY);
+        btUpdate.setBackground(Color.DARK_GRAY);
         btUpdate.setForeground(new java.awt.Color(222, 222, 222));
     }//GEN-LAST:event_btUpdateMouseEntered
 
@@ -373,16 +341,6 @@ public class UpdateDelete extends javax.swing.JFrame {
         btDelete.setBackground(new java.awt.Color(255, 51, 51));
         btDelete.setForeground(new java.awt.Color(51, 51, 51));
     }//GEN-LAST:event_btDeleteMouseExited
-
-    private void btResetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btResetMouseEntered
-        btReset.setBackground(Color.DARK_GRAY);
-        btReset.setForeground(new java.awt.Color(222, 222, 222));
-    }//GEN-LAST:event_btResetMouseEntered
-
-    private void btResetMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btResetMouseExited
-        btReset.setBackground(new java.awt.Color(255, 51, 51));
-        btReset.setForeground(new java.awt.Color(51, 51, 51));
-    }//GEN-LAST:event_btResetMouseExited
 
     private void btSearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSearchMouseEntered
         btSearch.setBackground(Color.DARK_GRAY);
@@ -405,19 +363,43 @@ public class UpdateDelete extends javax.swing.JFrame {
     }//GEN-LAST:event_btSalir2MouseExited
 
     private void txtIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIDMouseClicked
-       if (txtID.getText().equals("Ingrese el ID")) {
+        if (txtID.getText().equals("Ingrese el ID")) {
             txtID.setText("");
             txtID.setForeground(Color.DARK_GRAY);
         }
     }//GEN-LAST:event_txtIDMouseClicked
-
+    public void chargeClient(Cliente cliente) {
+        txtEdad.setText(cliente.getEdad() + "");
+        txtHeight.setText(cliente.getAltura() + "");
+        txtApellido.setText(cliente.getApellido());
+        txtMember.setText(cliente.getCategoria());
+        txtNombre.setText(cliente.getNombre());
+        txtPayment.setText(cliente.getPaymentPlan());
+        txtTelefono.setText(cliente.getTelefono() + "");
+        txtWeight.setText(cliente.getPeso() + "");
+    }
+    public Cliente getCliente() {
+     int id=Integer.parseInt(txtID.getText());
+     String nombre = txtNombre.getText();
+     String apellido =txtApellido.getText();
+     int edad=Integer.parseInt(txtEdad.getText());
+     int telefono =Integer.parseInt(txtTelefono.getText());
+     String categoria=txtMember.getText();
+     String paymentPlan=txtPayment.getText();
+     double altura =Double.parseDouble(txtHeight.getText());
+     double peso=Double.parseDouble(txtWeight.getText());
+       return new Cliente(id, nombre, apellido, edad, telefono, categoria, paymentPlan, altura, peso);
+    }
     /**
      * @param args the command line arguments
      */
 
+    public String getTxtID() {
+        return txtID.getText();
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDelete;
-    private javax.swing.JButton btReset;
     private javax.swing.JButton btSalir2;
     private javax.swing.JButton btSearch;
     private javax.swing.JButton btUpdate;

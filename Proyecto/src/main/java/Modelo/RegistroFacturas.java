@@ -31,18 +31,28 @@ public class RegistroFacturas {
         this.facturas = new ArrayList<>();
     }
 
-    public static void escribirCSV(ArrayList<Factura> facturas, String rutaArchivo) throws IOException {
-        try (CSVWriter writer = new CSVWriter(new FileWriter(rutaArchivo))) {
-            // Configurar el escritor CSV
-            StatefulBeanToCsv<Factura> beanToCsv = new StatefulBeanToCsvBuilder<Factura>(writer).build();
-            try {
-                // Escribir la lista de personas en el archivo CSV
-                beanToCsv.write(facturas);
-            } catch (CsvDataTypeMismatchException ex) {
-            } catch (CsvRequiredFieldEmptyException ex) {
-            }
+    private static void escribirCSVInternamente(ArrayList<Factura> facturas, String rutaArchivo) throws IOException {
+    try (CSVWriter writer = new CSVWriter(new FileWriter(rutaArchivo))) {
+        // Configurar el escritor CSV
+        StatefulBeanToCsv<Factura> beanToCsv = new StatefulBeanToCsvBuilder<Factura>(writer).build();
+        try {
+            // Escribir la lista de personas en el archivo CSV
+            beanToCsv.write(facturas);
+        } catch (CsvDataTypeMismatchException ex) {
+            throw new IOException("Error: Se ha producido un error de tipo de datos en la escritura del CSV.", ex);
+        } catch (CsvRequiredFieldEmptyException ex) {
+            throw new IOException("Error: Se ha producido un error de campo requerido vacío en la escritura del CSV.", ex);
         }
     }
+}
+    public static void escribirCSV(ArrayList<Factura> facturas, String rutaArchivo) {
+    try {
+        escribirCSVInternamente(facturas, rutaArchivo);
+    } catch (IOException e) {
+        // Trakti la escepton de I/O
+        System.err.println("Error para escribir CSV: " + e.getMessage());
+    }
+}
 
     public static ArrayList<Factura> leerCSV(String rutaArchivo) throws IOException {
         try (CSVReader reader = new CSVReader(new FileReader(rutaArchivo))) {

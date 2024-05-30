@@ -4,8 +4,10 @@
  */
 package Vista;
 
+import Modelo.Factura;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -23,13 +25,23 @@ public class Payment extends javax.swing.JFrame {
      */
     public Payment() {
         initComponents();
+        chargeCombo();
     }
     public void escuchar(ActionListener manejador){
         this.btSearch.addActionListener(manejador);
         this.btSalir3.addActionListener(manejador);
     }
-    
-    public void setDataTable(String[][] data, String[] encabezado){
+    public Factura getFactura(){
+     int idCliente = Integer.parseInt(this.txtID.getText());
+     int idFactura=Integer.parseInt(this.txtInvoice.getText());
+     String fecha = this.txtDate.getText();
+     String nombre=this.txtNombre.getText();
+     String metodoPago=getComboSelectedItem();
+     double pagoTotal =Double.parseDouble(this.txtAmount.getText());
+     return new Factura(idCliente,idFactura,fecha,nombre,metodoPago,pagoTotal);
+    }
+    public void setDataTable(String[][] data ){
+        String[] encabezado = {"ID","Date","Nombre","Telefono","Payment Method","Amount to pay","Invoice ID"};
         DefaultTableModel model = new DefaultTableModel(data, encabezado);
         this.tblPayment.setModel(model);
         
@@ -38,6 +50,15 @@ public class Payment extends javax.swing.JFrame {
         this.tblPayment.setRowSorter(sorter);//aqui la tabla ya tendría los filtros
         
         this.jScrollPane1.setViewportView(this.tblPayment);
+    }
+    public void Limpiar(){
+        txtDate.setText("");
+        txtID.setText("");
+        txtInvoice.setText("");
+        txtNombre.setText("");
+        txtTelefono.setText("");
+        txtAmount.setText("");
+    
     }
 
     /**
@@ -77,6 +98,9 @@ public class Payment extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtAmount = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
+        jLabel10 = new javax.swing.JLabel();
+        jSeparator9 = new javax.swing.JSeparator();
+        txtInvoice = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -113,7 +137,6 @@ public class Payment extends javax.swing.JFrame {
         jLabel2.setText("ID");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
-        txtID.setBackground(new java.awt.Color(255, 255, 255));
         txtID.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtID.setForeground(new java.awt.Color(204, 204, 204));
         txtID.setText("Ingrese el ID");
@@ -137,7 +160,7 @@ public class Payment extends javax.swing.JFrame {
         btSearch.setBackground(new java.awt.Color(255, 51, 51));
         btSearch.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         btSearch.setForeground(new java.awt.Color(51, 51, 51));
-        btSearch.setText("Search");
+        btSearch.setText("Add");
         btSearch.setBorder(null);
         btSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -178,14 +201,13 @@ public class Payment extends javax.swing.JFrame {
         jSeparator2.setBackground(new java.awt.Color(51, 51, 51));
         jSeparator2.setForeground(new java.awt.Color(51, 51, 51));
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 10, 320));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 10, 330));
 
         jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Date");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
-        txtDate.setBackground(new java.awt.Color(255, 255, 255));
         txtDate.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtDate.setForeground(new java.awt.Color(204, 204, 204));
         txtDate.setText("DD/MM/YY");
@@ -211,7 +233,6 @@ public class Payment extends javax.swing.JFrame {
         jLabel5.setText("Nombre");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
-        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(204, 204, 204));
         txtNombre.setText("..........");
@@ -232,7 +253,6 @@ public class Payment extends javax.swing.JFrame {
         jLabel6.setText("Telefono");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
-        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
         txtTelefono.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtTelefono.setForeground(new java.awt.Color(204, 204, 204));
         txtTelefono.setText("0000-0000");
@@ -271,7 +291,6 @@ public class Payment extends javax.swing.JFrame {
         jLabel8.setText("Amount to Pay");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
-        txtAmount.setBackground(new java.awt.Color(255, 255, 255));
         txtAmount.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtAmount.setForeground(new java.awt.Color(204, 204, 204));
         txtAmount.setText("-----");
@@ -287,6 +306,26 @@ public class Payment extends javax.swing.JFrame {
         jSeparator7.setForeground(new java.awt.Color(51, 51, 51));
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 210, 10));
 
+        jLabel10.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel10.setText("Invoice ID");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
+
+        jSeparator9.setBackground(new java.awt.Color(51, 51, 51));
+        jSeparator9.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 210, 10));
+
+        txtInvoice.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
+        txtInvoice.setForeground(new java.awt.Color(204, 204, 204));
+        txtInvoice.setText("-----");
+        txtInvoice.setBorder(null);
+        txtInvoice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtInvoiceActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtInvoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 210, 20));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -295,13 +334,21 @@ public class Payment extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    private void chargeCombo(){
+        String[] metodos = {"Cash","Sinpe","Card"};
+        cBoxPay.setModel(new DefaultComboBoxModel<String>(metodos));
+    }
+    public String getComboSelectedItem(){
+        return cBoxPay.getSelectedItem().toString();
+    }
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDActionPerformed
@@ -369,6 +416,10 @@ public class Payment extends javax.swing.JFrame {
         btSalir3.setForeground(new java.awt.Color(222, 222, 222));
     }//GEN-LAST:event_btSalir3MouseExited
 
+    private void txtInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInvoiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtInvoiceActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -378,6 +429,7 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JButton btSearch;
     private javax.swing.JComboBox<String> cBoxPay;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -396,10 +448,12 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTable tblPayment;
     private javax.swing.JTextField txtAmount;
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtInvoice;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables

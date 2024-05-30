@@ -35,34 +35,49 @@ public class RegistroUser {
         }
     }
 
-    public static void writeCSV(ArrayList<User> usuariosRegistrados, String rutaArchivo) throws IOException {
-        try (CSVWriter writer = new CSVWriter(new FileWriter(rutaArchivo))) {
-            StatefulBeanToCsv<User> beanToCsv = new StatefulBeanToCsvBuilder<User>(writer).build();
+  
+    public static void writeCSV(ArrayList<User> usuariosRegistrados, String rutaArchivo) {
+    try (CSVWriter writer = new CSVWriter(new FileWriter(rutaArchivo))) {
+        StatefulBeanToCsv<User> beanToCsv = new StatefulBeanToCsvBuilder<User>(writer).build();
 
-            try {
-                beanToCsv.write(usuariosRegistrados);
+        try {
+            beanToCsv.write(usuariosRegistrados);
 
-            } catch (CsvDataTypeMismatchException ex) {
-            } catch (CsvRequiredFieldEmptyException ex) {
-            }
+        } catch (CsvDataTypeMismatchException ex) {
+            System.err.println("Error: Se ha producido un error de tipo de datos en la escritura del CSV.");
+            ex.printStackTrace();
+        } catch (CsvRequiredFieldEmptyException ex) {
+            System.err.println("Error: Se ha producido un error de campo requerido vacío en la escritura del CSV.");
+            ex.printStackTrace();
         }
+    } catch (IOException ex) {
+        System.err.println("Error: No se pudo escribir el archivo CSV. Verifique que la ruta sea correcta y que tenga permisos de escritura.");
+        ex.printStackTrace();
     }
+}
 
-    public static ArrayList<User> readCSV(String rutaArchivo) throws IOException {
-        try (CSVReader reader = new CSVReader(new FileReader(rutaArchivo))) {
-            // Configurar el lector CSV
-            CsvToBean<User> csvToBean = new CsvToBeanBuilder<User>(reader)
-                    .withType(User.class)
-                    .build();
 
-            // Leer las personas del archivo CSV
-            return (ArrayList<User>) csvToBean.parse();
-        }
+    public static ArrayList<User> readCSV(String rutaArchivo) {
+    ArrayList<User> usuarios = new ArrayList<>();
+    try (CSVReader reader = new CSVReader(new FileReader(rutaArchivo))) {
+        // Configurar el lector CSV
+        CsvToBean<User> csvToBean = new CsvToBeanBuilder<User>(reader)
+               .withType(User.class)
+               .build();
+
+        // Leer las personas del archivo CSV
+        usuarios = (ArrayList<User>) csvToBean.parse();
+    } catch (IOException ex) {
+        System.err.println("Error: No se pudo leer el archivo CSV. Verifique que la ruta sea correcta y que tenga permisos de lectura.");
+        ex.printStackTrace();
     }
+    return usuarios;
+}
 
-    public String addUser(User user) throws IOException {
+    public String addUser(User user) {
+    try {
         usuariosRegistrados = readCSV(filePath);
-        if (user != null) {
+        if (user!= null) {
             if (searchUser(user.getIdUser()) == null) {
                 usuariosRegistrados.add(user);
                 writeCSV(usuariosRegistrados, filePath);
@@ -73,9 +88,15 @@ public class RegistroUser {
         } else {
             return "Error al agregar este usuario";
         }
+    } catch (IOException ex) {
+        System.err.println("Error: No se pudo agregar el usuario. Verifique que la ruta sea correcta y que tenga permisos de escritura.");
+        ex.printStackTrace();
+        return "Error al agregar el usuario";
     }
+}
 
-    private User searchUser(int idUser) throws IOException {
+
+    public User searchUser(int idUser) throws IOException {
         usuariosRegistrados = readCSV(filePath);
         for (User user : usuariosRegistrados) {
             if (user.getIdUser() == idUser) {

@@ -23,7 +23,7 @@ public class RegistroCliente {
     private String filePath = "clientes.json";
 
     public RegistroCliente() {
-        this.listaClientes = readFromJson();
+        this.listaClientes = new ArrayList<Cliente>();
         this.mensaje = "";
     }
     
@@ -41,7 +41,7 @@ public class RegistroCliente {
         return mensaje;
     }
 
-    private Cliente buscarCliente(int id) {
+    public Cliente buscarCliente(int id) {
         for (Cliente miCliente : listaClientes) {
             if (miCliente.getId()==id) {
                 return miCliente;

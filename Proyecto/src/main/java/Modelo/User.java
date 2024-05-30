@@ -4,13 +4,16 @@
  */
 package Modelo;
 
+import com.opencsv.bean.CsvBindByName;
+
 /**
  *
  * @author PC
  */
 public class User {
-
+    @CsvBindByName
     int idUser;
+    @CsvBindByName
     String password;
 
     public User() {
