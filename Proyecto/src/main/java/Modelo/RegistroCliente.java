@@ -43,18 +43,21 @@ public class RegistroCliente {
         return mensaje;
     }
 
-//    public Cliente buscarCliente(int id) {
-//        for (Cliente miCliente : listaClientes) {
-//            if (miCliente.getId()==id) {
-//                return miCliente;
-//            }
-//        }
-//        return null;
-//    }
+    public Cliente buscarClienteB(int id) {
+        for (Cliente miCliente : listaClientes) {
+            if (miCliente.getId()==id) {
+                return miCliente;
+            }
+        }
+        return null;
+    }
     public Cliente buscarCliente(int id) {
         for (Cliente miCliente : listaClientes) {
             if (miCliente.getId() == id) {
                 return miCliente;
+            }
+            if (miCliente.getId() != id) {
+                return null;
             }
         }
         throw new NoSuchElementException("No se encontró un cliente con el ID " + id);

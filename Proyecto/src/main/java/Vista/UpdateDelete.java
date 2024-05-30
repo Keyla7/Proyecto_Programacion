@@ -22,7 +22,10 @@ public class UpdateDelete extends javax.swing.JFrame {
     public UpdateDelete() {
         initComponents();
     }
-
+    
+    public String getTxtID() {
+        return txtID.getText();
+    }
     public void escuchar(ActionListener manejador) {
         this.btUpdate.addActionListener(manejador);
         this.btDelete.addActionListener(manejador);
@@ -407,10 +410,6 @@ public class UpdateDelete extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
-    public String getTxtID() {
-        return txtID.getText();
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDelete;
