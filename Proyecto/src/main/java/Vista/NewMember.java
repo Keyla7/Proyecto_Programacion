@@ -28,17 +28,22 @@ public class NewMember extends javax.swing.JFrame {
     }
 
     public Cliente getNewMember() {
-        int id = Integer.parseInt(txtID.getText());
-        String nombre = txtNombre.getText();
-        String apellido = txtApellido.getText();
-        int edad = Integer.parseInt(txtEdad.getText());
-        int telefono = Integer.parseInt(txtTelefono.getText());
-        String comboCategory = (String) cBoxCategory.getSelectedItem();
-        String comboPlan = (String) cBoxPayment.getSelectedItem();
-        double altura = Double.parseDouble(txtHeight.getText());
-        double peso = Double.parseDouble(txtWeight.getText());
-        
-        return new Cliente(id, nombre, apellido, edad, telefono, comboCategory, comboPlan, altura, peso);
+        try {
+            int id = Integer.parseInt(txtID.getText());
+            String nombre = txtNombre.getText();
+            String apellido = txtApellido.getText();
+            int edad = Integer.parseInt(txtEdad.getText());
+            int telefono = Integer.parseInt(txtTelefono.getText());
+            String comboCategory = (String) cBoxCategory.getSelectedItem();
+            String comboPlan = (String) cBoxPayment.getSelectedItem();
+            double altura = Double.parseDouble(txtHeight.getText());
+            double peso = Double.parseDouble(txtWeight.getText());
+
+            return new Cliente(id, nombre, apellido, edad, telefono, comboCategory, comboPlan, altura, peso);
+        } catch (NumberFormatException e) {
+            System.err.println("Invalid input: " + e.getMessage());
+        }
+        return null;
     }
 
     public void cargarCombo(String[] listaOperaciones) {
@@ -59,12 +64,12 @@ public class NewMember extends javax.swing.JFrame {
     public void limpiar() {
         this.txtNombre.setText("Ingrese su nombre");
         this.txtApellido.setText("Ingrese su apellido");
-         this.txtID.setText("Ingrese su ID");
+        this.txtID.setText("Ingrese su ID");
         this.txtEdad.setText("Ingrese su edad");
         this.txtTelefono.setText("0000-0000");
         this.txtHeight.setText("Ingrese su altura");
         this.txtWeight.setText("Ingrese su peso");
-        
+
     }
 
     /**
@@ -565,7 +570,7 @@ public class NewMember extends javax.swing.JFrame {
     }//GEN-LAST:event_txtWeightMouseClicked
 
     private void txtTelefonoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoMouseClicked
-       if (txtTelefono.getText().equals("0000-0000")) {
+        if (txtTelefono.getText().equals("0000-0000")) {
             txtTelefono.setText("");
             txtTelefono.setForeground(Color.DARK_GRAY);
         }

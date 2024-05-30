@@ -24,7 +24,7 @@ public class ControllerUPDE implements ActionListener {
         this.updateDelete = new UpdateDelete();
         this.updateDelete.escuchar(this);
         this.updateDelete.setVisible(true);
-        registroCliente = registroCliente;
+       this.registroCliente = registroCliente;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class ControllerUPDE implements ActionListener {
                 }
                 break;
             case "Search":
-                cliente= registroCliente.buscarCliente(Integer.parseInt(updateDelete.getTxtID()));
+                 cliente = registroCliente.buscarCliente(Integer.parseInt(updateDelete.getTxtID()));
                 if (cliente!=null) {
                     updateDelete.chargeClient(cliente);
                 }

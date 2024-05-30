@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import Modelo.Cliente;
 import Modelo.RegistroCliente;
 import Modelo.RegistroFacturas;
 import Vista.Menu;
@@ -24,12 +25,12 @@ public class ControllerMenu implements ActionListener {
     private RegistroCliente registroCliente;
     private RegistroFacturas registroFacturas;
 
-    public ControllerMenu(RegistroCliente registroCliente, RegistroFacturas registroFacturas) {
+    public ControllerMenu() {
         this.menu = new Menu();
         this.menu.setVisible(true);
         this.menu.escucharItems(this);
-        registroCliente = registroCliente;
-        registroFacturas = registroFacturas;
+        registroCliente = new RegistroCliente();
+        registroFacturas = new RegistroFacturas();
     }
 
     @Override
@@ -45,7 +46,13 @@ public class ControllerMenu implements ActionListener {
                 new ControllerList();
                 break;
             case "Edit & Delete Member":
-                new ControllerUPDE(registroCliente);
+               
+                   
+                    new ControllerUPDE(registroCliente);
+                    
+               
+                
+                
                 break;
             case "Exit":
                 new ControllerLogin();

@@ -20,8 +20,8 @@ import javax.swing.table.TableRowSorter;
  */
 public class Payment extends javax.swing.JFrame {
 
-    TableRowSorter<TableModel>sorter;
-    
+    TableRowSorter<TableModel> sorter;
+
     /**
      * Creates new form Payment
      */
@@ -29,33 +29,42 @@ public class Payment extends javax.swing.JFrame {
         initComponents();
         chargeCombo();
     }
-    
-    public void escuchar(ActionListener manejador){
+
+    public void escuchar(ActionListener manejador) {
         this.btSearch.addActionListener(manejador);
         this.btSalir3.addActionListener(manejador);
     }
-    public Factura getFactura(){
-     int idCliente = Integer.parseInt(txtID.getText());
-     String fecha = txtDate.getText();
-     String nombre= txtNombre.getText();
-     String metodoPago= (String)cBoxPay.getSelectedItem();
-     double pagoTotal = Double.parseDouble(txtAmount.getText());
-     int idFactura= Integer.parseInt(txtInvoice.getText());
-     
-     return new Factura(idCliente, fecha, nombre, metodoPago, pagoTotal, idFactura);
+
+    public Factura getFactura() {
+
+        try {
+            double pagoTotal = Double.parseDouble(txtAmount.getText());
+            int idCliente = Integer.parseInt(txtID.getText());
+            String fecha = txtDate.getText();
+            String nombre = txtNombre.getText();
+            String metodoPago = (String) cBoxPay.getSelectedItem();
+            int idFactura = Integer.parseInt(txtInvoice.getText());
+
+            return new Factura(idCliente, fecha, nombre, metodoPago, pagoTotal, idFactura);
+        } catch (NumberFormatException e) {
+            System.err.println("Invalid input: " + e.getMessage());
+        }
+        return null;
     }
-    public void setDataTable(String[][] data ){
-        String[] encabezado = {"ID", "Date" ,"Nombre", "Payment Method", "Amount to pay","Invoice ID"};
+
+    public void setDataTable(String[][] data) {
+        String[] encabezado = {"ID", "Date", "Nombre", "Payment Method", "Amount to pay", "Invoice ID"};
         DefaultTableModel model = new DefaultTableModel(data, encabezado);
         this.tblPayment.setModel(model);
-        
+
         this.tblPayment.setAutoCreateRowSorter(true); //indica a latabla que en cada una de las filas se van a crear un filtro
-        this.sorter= new TableRowSorter<>(model);//se crea la instancia y se pasa el modelo que seria basicamente la tabla
+        this.sorter = new TableRowSorter<>(model);//se crea la instancia y se pasa el modelo que seria basicamente la tabla
         this.tblPayment.setRowSorter(sorter);//aqui la tabla ya tendría los filtros
-        
+
         this.jScrollPane1.setViewportView(this.tblPayment);
     }
-    public void Limpiar(){
+
+    public void Limpiar() {
         txtID.setText("");
         txtDate.setText("");
         txtNombre.setText("");
@@ -319,11 +328,12 @@ public class Payment extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    private void chargeCombo(){
-        String[] metodos = {"Cash","SinpeMovil","Card"};
+    private void chargeCombo() {
+        String[] metodos = {"Cash", "SinpeMovil", "Card"};
         cBoxPay.setModel(new DefaultComboBoxModel<String>(metodos));
     }
-    public String getComboSelectedItem(){
+
+    public String getComboSelectedItem() {
         return cBoxPay.getSelectedItem().toString();
     }
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
@@ -358,19 +368,19 @@ public class Payment extends javax.swing.JFrame {
 
     private void txtIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIDMouseClicked
         if (txtID.getText().equals("Ingrese el ID")) {
-            txtID.setText(""); 
+            txtID.setText("");
             txtID.setForeground(Color.DARK_GRAY);
         }
         if (txtDate.getText().isEmpty()) {
             txtDate.setText("DD/MM/YY");
             txtDate.setForeground(Color.LIGHT_GRAY);
         }
-        
+
     }//GEN-LAST:event_txtIDMouseClicked
 
     private void txtDateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDateMouseClicked
         if (txtDate.getText().equals("DD/MM/YY")) {
-            txtDate.setText(""); 
+            txtDate.setText("");
             txtDate.setForeground(Color.DARK_GRAY);
         }
         if (txtID.getText().isEmpty()) {

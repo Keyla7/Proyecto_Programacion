@@ -25,9 +25,7 @@ import javax.swing.JOptionPane;
 public class ControllerLogin implements ActionListener {
 
     private ControllerMenu menu;
-    Principal login;
-    RegistroCliente registroCliente;
-    RegistroFacturas registroFacturas;
+    private Principal login;
     private RegistroUser registroUsuarios;
     private User user;
 
@@ -35,9 +33,10 @@ public class ControllerLogin implements ActionListener {
         this.login = new Principal();
         this.login.setVisible(true);
         this.login.escuchar(this);
-        registroCliente = new RegistroCliente();
-        registroFacturas = new RegistroFacturas();
+        
         registroUsuarios = new RegistroUser();
+        
+       
     }
 
     @Override
@@ -48,7 +47,7 @@ public class ControllerLogin implements ActionListener {
                 if (user != null) {
                     try {
                         if (registroUsuarios.verificacionU(user)) {
-                            new ControllerMenu(registroCliente, registroFacturas);
+                            new ControllerMenu();
                         }
                     } catch (IOException ex) {
                         Logger.getLogger(ControllerLogin.class.getName()).log(Level.SEVERE, null, ex);

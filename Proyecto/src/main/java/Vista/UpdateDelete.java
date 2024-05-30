@@ -104,7 +104,7 @@ public class UpdateDelete extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel11.setText("Updete & Delete");
+        jLabel11.setText("Update & Delete");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 210, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg3.jpeg"))); // NOI18N
