@@ -22,17 +22,18 @@ public class UpdateDelete extends javax.swing.JFrame {
     public UpdateDelete() {
         initComponents();
     }
-    
+
     public String getTxtID() {
         return txtID.getText();
     }
+
     public void escuchar(ActionListener manejador) {
         this.btUpdate.addActionListener(manejador);
         this.btDelete.addActionListener(manejador);
         this.btSearch.addActionListener(manejador);
         this.btSalir2.addActionListener(manejador);
     }
-    
+
     public void cargarCombo(String[] listaOperaciones) {
         String[] membresias = {"Membresía Básica", "Membresía Estándar", "Membresía Premium", "Membresía Estudiantil"};
         String[] planesPago = {"Pago Mensual", "Pago Anual", "Pago Trimestral", "Pago Semestral", "Pago por día"};
@@ -46,6 +47,17 @@ public class UpdateDelete extends javax.swing.JFrame {
 
     public String devolverCombo2() {
         return this.cBoxPayment.getSelectedItem().toString();
+    }
+
+    public void limpiarCampos() {
+        this.txtID.setText("");
+        this.txtNombre.setText("");
+        this.txtApellido.setText("");
+        this.txtID.setText("");
+        this.txtEdad.setText("");
+        this.txtTelefono.setText("");
+        this.txtHeight.setText("");
+        this.txtWeight.setText("");
     }
 
     /**
@@ -413,17 +425,18 @@ public class UpdateDelete extends javax.swing.JFrame {
         txtWeight.setText(cliente.getPeso() + "");
         txtWeight.setForeground(Color.DARK_GRAY);
     }
+
     public Cliente getCliente() {
-     int id=Integer.parseInt(txtID.getText());
-     String nombre = txtNombre.getText();
-     String apellido =txtApellido.getText();
-     int edad=Integer.parseInt(txtEdad.getText());
-     int telefono =Integer.parseInt(txtTelefono.getText());
-     String categoria=(String) this.devolverCombo();
-     String paymentPlan=(String) this.devolverCombo2();
-     double altura =Double.parseDouble(txtHeight.getText());
-     double peso=Double.parseDouble(txtWeight.getText());
-       return new Cliente(id, nombre, apellido, edad, telefono, categoria, paymentPlan, altura, peso);
+        int id = Integer.parseInt(txtID.getText());
+        String nombre = txtNombre.getText();
+        String apellido = txtApellido.getText();
+        int edad = Integer.parseInt(txtEdad.getText());
+        int telefono = Integer.parseInt(txtTelefono.getText());
+        String categoria = (String) this.devolverCombo();
+        String paymentPlan = (String) this.devolverCombo2();
+        double altura = Double.parseDouble(txtHeight.getText());
+        double peso = Double.parseDouble(txtWeight.getText());
+        return new Cliente(id, nombre, apellido, edad, telefono, categoria, paymentPlan, altura, peso);
     }
     /**
      * @param args the command line arguments

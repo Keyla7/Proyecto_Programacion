@@ -32,20 +32,22 @@ public class ControllerUPDE implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand().toString()) {
             case "Update":
-                cliente=updateDelete.getCliente();
-                if (cliente!=null) {
-                    JOptionPane.showMessageDialog(null, registroCliente.agregarCliente(cliente));           
+                cliente = updateDelete.getCliente();
+                if (cliente != null) {
+                    JOptionPane.showMessageDialog(null, registroCliente.editarCliente(cliente));
+                    updateDelete.limpiarCampos();
                 }
                 break;
             case "Delete":
-                   cliente=updateDelete.getCliente();
-                if (cliente!=null) {
+                cliente = updateDelete.getCliente();
+                if (cliente != null) {
                     JOptionPane.showMessageDialog(null, registroCliente.eliminarCliente(cliente));
+                    updateDelete.limpiarCampos();
                 }
                 break;
             case "Search":
-                 this.cliente = this.registroCliente.buscarClienteB(Integer.parseInt(this.updateDelete.getTxtID()));
-                if (cliente!=null) {
+                this.cliente = this.registroCliente.buscarClienteB(Integer.parseInt(this.updateDelete.getTxtID()));
+                if (cliente != null) {
                     this.updateDelete.chargeClient(cliente);
                 }
                 break;
