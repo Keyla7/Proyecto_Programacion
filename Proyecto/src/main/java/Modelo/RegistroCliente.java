@@ -32,7 +32,8 @@ public class RegistroCliente {
     public String agregarCliente(Cliente cliente) {
         if (cliente != null) {
             if (buscarClienteB(cliente.getId()) == null) {
-                this.appendToJson(cliente);
+                this.listaClientes.add(cliente);
+                appendToJson();
                 mensaje = "Cliente agregado correctamente";
             } else {
                 mensaje = "Ya existe un cliente con el id '" + cliente.getId() + "'";
@@ -66,6 +67,7 @@ public class RegistroCliente {
     public String eliminarCliente(Cliente cliente) {
         if (buscarClienteB(cliente.getId()) != null) {
             this.listaClientes.remove(cliente);
+            appendToJson();
             mensaje = "Cliente eliminado con exito";
         } else {
             mensaje = "El cliente ingresado no existe";
@@ -77,6 +79,7 @@ public class RegistroCliente {
         for (int i = 0; i < this.listaClientes.size(); i++) {
             if (this.listaClientes.get(i).getId() == cliente.getId()) {
                 this.listaClientes.set(i, cliente);
+                appendToJson();
                 return "El cliente ha sido modificado correctamente";
             }
         }
@@ -93,35 +96,31 @@ public class RegistroCliente {
         return matrizClientes;
     }
 
-    public void appendToJson(Cliente cliente) {
-        JSONObject nuevoCliente = new JSONObject();
-
-        nuevoCliente.put("id", cliente.getId());
-        nuevoCliente.put("nombre", cliente.getNombre());
-        nuevoCliente.put("apellido", cliente.getApellido());
-        nuevoCliente.put("edad", cliente.getEdad());
-        nuevoCliente.put("telefono", cliente.getTelefono());
-        nuevoCliente.put("categoria", cliente.getCategoria());
-        nuevoCliente.put("paymentPlan", cliente.getPaymentPlan());
-        nuevoCliente.put("altura", cliente.getAltura());
-        nuevoCliente.put("peso", cliente.getPeso());
-
+    public void appendToJson() {
+        
         JSONArray arrayCliente = new JSONArray();
 
-        JSONParser parser = new JSONParser();
-        try (FileReader reader = new FileReader(filePath)) {
-            Object nuevo = parser.parse(reader);
-            arrayCliente = (JSONArray) nuevo;
-        } catch (IOException | org.json.simple.parser.ParseException e) {
-            System.out.println("File no found");
-        }
-        arrayCliente.add(nuevoCliente);
-        try (FileWriter archivo = new FileWriter(filePath)) {
-            archivo.write(arrayCliente.toJSONString());
-            archivo.flush();
-        } catch (IOException io) {
-            io.printStackTrace();
-        }
+        for (int i = 0; i < listaClientes.size(); i++) {
+            JSONObject nuevoCliente = new JSONObject();
+
+            nuevoCliente.put("id", listaClientes.get(i).getId());
+            nuevoCliente.put("nombre", listaClientes.get(i).getNombre());
+            nuevoCliente.put("apellido", listaClientes.get(i).getApellido());
+            nuevoCliente.put("edad", listaClientes.get(i).getEdad());
+            nuevoCliente.put("telefono", listaClientes.get(i).getTelefono());
+            nuevoCliente.put("categoria", listaClientes.get(i).getCategoria());
+            nuevoCliente.put("paymentPlan", listaClientes.get(i).getPaymentPlan());
+            nuevoCliente.put("altura", listaClientes.get(i).getAltura());
+            nuevoCliente.put("peso", listaClientes.get(i).getPeso());
+            
+            arrayCliente.add(nuevoCliente);
+            try (FileWriter archivo = new FileWriter(filePath)) {
+                archivo.write(arrayCliente.toJSONString());
+                archivo.flush();
+            } catch (IOException io) {
+                io.printStackTrace();
+            }
+        }//end of for
     }
 
     public ArrayList<Cliente> readFromJson() {
@@ -143,9 +142,7 @@ public class RegistroCliente {
                 double peso = (Double) miCliente.get("peso");
                 Cliente clientes = new Cliente(id, nombre, apellido, edad, telefono, categoria, paymentPlan, altura, peso);
                 arrayClientes.add(clientes);
-
             }
-
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
