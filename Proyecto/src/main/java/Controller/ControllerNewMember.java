@@ -6,6 +6,7 @@ package Controller;
 
 import Modelo.Cliente;
 import Modelo.RegistroCliente;
+import Vista.ListMember;
 import Vista.Menu;
 import Vista.NewMember;
 import java.awt.event.ActionEvent;
@@ -19,24 +20,28 @@ import javax.swing.JOptionPane;
 public class ControllerNewMember implements ActionListener {
 
     private NewMember member;
+    private Cliente cliente;
+    private Menu menu;
     private RegistroCliente registroClientes;
     private ControllerList controllerList;
+    private ListMember lMember;
+    
+    
     public ControllerNewMember(RegistroCliente registroClientes) {
         this.member = new NewMember();
         this.member.setVisible(true);
         this.member.escuchar(this);
-        registroClientes = registroClientes;
+        this.registroClientes = new RegistroCliente();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand().toString()) {
             case "Check In":
-                Cliente cliente = this.member.getNewMember();
+                this.cliente = this.member.getNewMember();
                 if (this.validarCampos(cliente)) {
                     Menu.getMensaje(this.registroClientes.agregarCliente(cliente));
                     this.member.limpiar();
-
                 }
                 break;
             case "X":

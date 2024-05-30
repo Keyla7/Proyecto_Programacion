@@ -48,7 +48,8 @@ public class ControllerMenu implements ActionListener {
                 new ControllerUPDE(registroCliente);
                 break;
             case "Exit":
-                System.exit(0);
+                new ControllerLogin();
+                menu.setVisible(false);
                 break;
 
         }

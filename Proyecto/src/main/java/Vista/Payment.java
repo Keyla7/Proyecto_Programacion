@@ -58,7 +58,6 @@ public class Payment extends javax.swing.JFrame {
         txtNombre.setText("");
         txtTelefono.setText("");
         txtAmount.setText("");
-    
     }
 
     /**
@@ -158,7 +157,7 @@ public class Payment extends javax.swing.JFrame {
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 210, 10));
 
         btSearch.setBackground(new java.awt.Color(255, 51, 51));
-        btSearch.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
+        btSearch.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         btSearch.setForeground(new java.awt.Color(51, 51, 51));
         btSearch.setText("Add");
         btSearch.setBorder(null);
@@ -170,7 +169,7 @@ public class Payment extends javax.swing.JFrame {
                 btSearchMouseExited(evt);
             }
         });
-        jPanel1.add(btSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 50, 30));
+        jPanel1.add(btSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 50, 30));
 
         tblPayment.setBackground(new java.awt.Color(51, 51, 51));
         tblPayment.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -230,7 +229,7 @@ public class Payment extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("Nombre");
+        jLabel5.setText("Name");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         txtNombre.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
@@ -250,7 +249,7 @@ public class Payment extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setText("Telefono");
+        jLabel6.setText("Phone Number");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
         txtTelefono.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
@@ -343,7 +342,7 @@ public class Payment extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     private void chargeCombo(){
-        String[] metodos = {"Cash","Sinpe","Card"};
+        String[] metodos = {"Cash","SinpeMovil","Card"};
         cBoxPay.setModel(new DefaultComboBoxModel<String>(metodos));
     }
     public String getComboSelectedItem(){

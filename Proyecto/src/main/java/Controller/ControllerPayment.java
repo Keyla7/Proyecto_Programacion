@@ -29,8 +29,8 @@ public class ControllerPayment implements ActionListener {
         this.payment = new Payment();
         this.payment.escuchar(this);
         this.payment.setVisible(true);
-        registroFacturas = registroFacturas;
-        registroClientes = registroClientes;
+        this.registroFacturas = new RegistroFacturas();
+        this.registroClientes = new RegistroCliente();
     }
 
     @Override
@@ -54,5 +54,4 @@ public class ControllerPayment implements ActionListener {
 
         }
     }
-
 }

@@ -81,7 +81,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("CONTRASEÑA");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg4.jpeg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 370));
@@ -89,12 +89,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("INICIAR SESION");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("ID");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, -1, -1));
 
         txtID.setBackground(new java.awt.Color(255, 255, 255));
         txtID.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -106,9 +106,9 @@ public class Principal extends javax.swing.JFrame {
                 txtIDMouseClicked(evt);
             }
         });
-        jPanel1.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 210, 20));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 200, -1));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 200, -1));
+        jPanel1.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 210, 20));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 200, -1));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 200, -1));
 
         fieldPass.setBackground(new java.awt.Color(255, 255, 255));
         fieldPass.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -120,7 +120,7 @@ public class Principal extends javax.swing.JFrame {
                 fieldPassMouseClicked(evt);
             }
         });
-        jPanel1.add(fieldPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 200, -1));
+        jPanel1.add(fieldPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 200, -1));
 
         btSalir.setBackground(new java.awt.Color(255, 255, 255));
         btSalir.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
@@ -141,10 +141,10 @@ public class Principal extends javax.swing.JFrame {
                 btSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 30, 30));
+        jPanel1.add(btSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 30, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, -1, -1));
 
         btIngresar.setBackground(new java.awt.Color(255, 51, 51));
         btIngresar.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
@@ -159,17 +159,17 @@ public class Principal extends javax.swing.JFrame {
                 btIngresarMouseExited(evt);
             }
         });
-        jPanel1.add(btIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 120, 40));
+        jPanel1.add(btIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 120, 40));
 
         jLabel7.setFont(new java.awt.Font("Roboto", 2, 10)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 153, 153));
         jLabel7.setText("¿Olvidó su contraseña?");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, -1, -1));
 
         btRegistro.setBackground(new java.awt.Color(255, 51, 51));
-        btRegistro.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btRegistro.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         btRegistro.setForeground(new java.awt.Color(51, 51, 51));
-        btRegistro.setText("+");
+        btRegistro.setText("REGISTRARSE");
         btRegistro.setActionCommand("add");
         btRegistro.setBorder(null);
         btRegistro.setFocusPainted(false);
@@ -181,7 +181,7 @@ public class Principal extends javax.swing.JFrame {
                 btRegistroMouseExited(evt);
             }
         });
-        jPanel1.add(btRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 60, 40));
+        jPanel1.add(btRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 110, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

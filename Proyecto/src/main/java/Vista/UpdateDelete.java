@@ -133,7 +133,7 @@ public class UpdateDelete extends javax.swing.JFrame {
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 210, 10));
 
         btSearch.setBackground(new java.awt.Color(255, 51, 51));
-        btSearch.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
+        btSearch.setFont(new java.awt.Font("Roboto", 1, 10)); // NOI18N
         btSearch.setForeground(new java.awt.Color(51, 51, 51));
         btSearch.setText("Search");
         btSearch.setBorder(null);
@@ -311,7 +311,7 @@ public class UpdateDelete extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
         );
 
         pack();
