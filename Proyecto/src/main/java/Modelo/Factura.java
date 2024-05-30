@@ -15,8 +15,6 @@ public class Factura {
     @CsvBindByName
     private int idCliente;
     @CsvBindByName
-    private int idFactura;
-    @CsvBindByName
     private String fecha;
     @CsvBindByName
     private String nombre;
@@ -24,17 +22,19 @@ public class Factura {
     private String metodoPago;
     @CsvBindByName
     private double pagoTotal;
+    @CsvBindByName
+    private int idFactura;
 
     public Factura() {
     }
 
-    public Factura(int idCliente, int idFactura, String fecha, String nombre, String metodoPago, double pagoTotal) {
+    public Factura(int idCliente, String fecha, String nombre, String metodoPago, double pagoTotal, int idFactura) {
         this.idCliente = idCliente;
-        this.idFactura = idFactura;
         this.fecha = fecha;
         this.nombre = nombre;
         this.metodoPago = metodoPago;
         this.pagoTotal = pagoTotal;
+        this.idFactura = idFactura;
     }
 
     public int getIdCliente() {

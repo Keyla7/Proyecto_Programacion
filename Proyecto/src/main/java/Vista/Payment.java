@@ -32,13 +32,14 @@ public class Payment extends javax.swing.JFrame {
         this.btSalir3.addActionListener(manejador);
     }
     public Factura getFactura(){
-     int idCliente = Integer.parseInt(this.txtID.getText());
-     int idFactura=Integer.parseInt(this.txtInvoice.getText());
-     String fecha = this.txtDate.getText();
-     String nombre=this.txtNombre.getText();
-     String metodoPago=getComboSelectedItem();
-     double pagoTotal =Double.parseDouble(this.txtAmount.getText());
-     return new Factura(idCliente,idFactura,fecha,nombre,metodoPago,pagoTotal);
+     int idCliente = Integer.parseInt(txtID.getText());
+     String fecha = txtDate.getText();
+     String nombre= txtNombre.getText();
+     String metodoPago= (String)cBoxPay.getSelectedItem();
+     double pagoTotal = Double.parseDouble(txtAmount.getText());
+     int idFactura= Integer.parseInt(txtInvoice.getText());
+     
+     return new Factura(idCliente, fecha, nombre, metodoPago, pagoTotal, idFactura);
     }
     public void setDataTable(String[][] data ){
         String[] encabezado = {"ID","Date","Nombre","Telefono","Payment Method","Amount to pay","Invoice ID"};
@@ -56,7 +57,6 @@ public class Payment extends javax.swing.JFrame {
         txtID.setText("");
         txtInvoice.setText("");
         txtNombre.setText("");
-        txtTelefono.setText("");
         txtAmount.setText("");
     }
 
@@ -88,9 +88,6 @@ public class Payment extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
-        jLabel6 = new javax.swing.JLabel();
-        txtTelefono = new javax.swing.JTextField();
-        jSeparator5 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         cBoxPay = new javax.swing.JComboBox<>();
@@ -247,34 +244,14 @@ public class Payment extends javax.swing.JFrame {
         jSeparator4.setForeground(new java.awt.Color(51, 51, 51));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 210, 10));
 
-        jLabel6.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setText("Phone Number");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
-
-        txtTelefono.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
-        txtTelefono.setForeground(new java.awt.Color(204, 204, 204));
-        txtTelefono.setText("0000-0000");
-        txtTelefono.setBorder(null);
-        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefonoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 210, 20));
-
-        jSeparator5.setBackground(new java.awt.Color(51, 51, 51));
-        jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 210, 10));
-
         jLabel7.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Payment Method");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
         jSeparator6.setBackground(new java.awt.Color(51, 51, 51));
         jSeparator6.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 210, 10));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 210, 10));
 
         cBoxPay.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         cBoxPay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cash", "SinpeMovil", "Card" }));
@@ -283,12 +260,12 @@ public class Payment extends javax.swing.JFrame {
                 cBoxPayMouseClicked(evt);
             }
         });
-        jPanel1.add(cBoxPay, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 210, 20));
+        jPanel1.add(cBoxPay, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 210, 20));
 
         jLabel8.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("Amount to Pay");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
         txtAmount.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtAmount.setForeground(new java.awt.Color(204, 204, 204));
@@ -299,20 +276,20 @@ public class Payment extends javax.swing.JFrame {
                 txtAmountActionPerformed(evt);
             }
         });
-        jPanel1.add(txtAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 210, 20));
+        jPanel1.add(txtAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 210, 20));
 
         jSeparator7.setBackground(new java.awt.Color(51, 51, 51));
         jSeparator7.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 210, 10));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 210, 10));
 
         jLabel10.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("Invoice ID");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
         jSeparator9.setBackground(new java.awt.Color(51, 51, 51));
         jSeparator9.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 210, 10));
+        jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 210, 10));
 
         txtInvoice.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         txtInvoice.setForeground(new java.awt.Color(204, 204, 204));
@@ -323,7 +300,7 @@ public class Payment extends javax.swing.JFrame {
                 txtInvoiceActionPerformed(evt);
             }
         });
-        jPanel1.add(txtInvoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 210, 20));
+        jPanel1.add(txtInvoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 210, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -334,7 +311,7 @@ public class Payment extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -369,10 +346,6 @@ public class Payment extends javax.swing.JFrame {
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoActionPerformed
 
     private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
         // TODO add your handling code here:
@@ -433,7 +406,6 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -443,7 +415,6 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
@@ -454,6 +425,5 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtInvoice;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

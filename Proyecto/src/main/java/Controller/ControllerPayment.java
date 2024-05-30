@@ -24,6 +24,7 @@ public class ControllerPayment implements ActionListener {
     private Payment payment;
     private RegistroFacturas registroFacturas;
     private RegistroCliente registroClientes;
+    private Factura factura;
 
     public ControllerPayment(RegistroFacturas registroFacturas, RegistroCliente registroClientes) {
         this.payment = new Payment();
@@ -37,7 +38,7 @@ public class ControllerPayment implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand().toString()) {
             case "Add":
-                Factura factura = payment.getFactura();
+                this.factura = this.payment.getFactura();
                 if (factura != null) {
                     try {
                         JOptionPane.showMessageDialog(null, registroFacturas.addFactura(factura));
