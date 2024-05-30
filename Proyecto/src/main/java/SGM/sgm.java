@@ -4,7 +4,7 @@
  */
 package SGM;
 
-import Controlador.ControllerLogin;
+import Controller.ControllerLogin;
 
 /**
  *
