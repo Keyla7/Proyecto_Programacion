@@ -106,6 +106,9 @@ public class ListMember extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg3.jpeg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 440, 80));
 
+        jTable1.setBackground(new java.awt.Color(255, 51, 51));
+        jTable1.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(51, 51, 51));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -114,6 +117,7 @@ public class ListMember extends javax.swing.JFrame {
                 "First Name", "Last name", "ID", "Age", "Phone number", "Membership Category", "Payment Plan", "Height", "Weight"
             }
         ));
+        jTable1.setGridColor(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 850, 320));

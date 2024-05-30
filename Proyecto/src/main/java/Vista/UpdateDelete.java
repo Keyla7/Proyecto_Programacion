@@ -156,6 +156,7 @@ public class UpdateDelete extends javax.swing.JFrame {
         btSearch.setForeground(new java.awt.Color(51, 51, 51));
         btSearch.setText("Search");
         btSearch.setBorder(null);
+        btSearch.setFocusPainted(false);
         btSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btSearchMouseEntered(evt);
@@ -175,6 +176,11 @@ public class UpdateDelete extends javax.swing.JFrame {
         txtNombre.setForeground(new java.awt.Color(204, 204, 204));
         txtNombre.setText("..........");
         txtNombre.setBorder(null);
+        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNombreMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 270, 20));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 270, 0));
 
@@ -283,6 +289,7 @@ public class UpdateDelete extends javax.swing.JFrame {
         btUpdate.setForeground(new java.awt.Color(51, 51, 51));
         btUpdate.setText("Update");
         btUpdate.setBorder(null);
+        btUpdate.setFocusPainted(false);
         btUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btUpdateMouseEntered(evt);
@@ -298,6 +305,7 @@ public class UpdateDelete extends javax.swing.JFrame {
         btDelete.setForeground(new java.awt.Color(51, 51, 51));
         btDelete.setText("Delete");
         btDelete.setBorder(null);
+        btDelete.setFocusPainted(false);
         btDelete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btDeleteMouseEntered(evt);
@@ -385,15 +393,25 @@ public class UpdateDelete extends javax.swing.JFrame {
             txtID.setForeground(Color.DARK_GRAY);
         }
     }//GEN-LAST:event_txtIDMouseClicked
+
+    private void txtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreMouseClicked
     public void chargeClient(Cliente cliente) {
-        txtEdad.setText(cliente.getEdad() + "");
-        txtHeight.setText(cliente.getAltura() + "");
-        txtApellido.setText(cliente.getApellido());
-        cBoxCategory.setSelectedItem(cliente.getCategoria());
         txtNombre.setText(cliente.getNombre());
-        cBoxPayment.setSelectedItem(cliente.getPaymentPlan());
+        txtNombre.setForeground(Color.DARK_GRAY);
+        txtApellido.setText(cliente.getApellido());
+        txtApellido.setForeground(Color.DARK_GRAY);
+        txtEdad.setText(cliente.getEdad() + "");
+        txtEdad.setForeground(Color.DARK_GRAY);
         txtTelefono.setText(cliente.getTelefono() + "");
+        txtTelefono.setForeground(Color.DARK_GRAY);
+        cBoxCategory.setSelectedItem(cliente.getCategoria());
+        cBoxPayment.setSelectedItem(cliente.getPaymentPlan());
+        txtHeight.setText(cliente.getAltura() + "");
+        txtHeight.setForeground(Color.DARK_GRAY);
         txtWeight.setText(cliente.getPeso() + "");
+        txtWeight.setForeground(Color.DARK_GRAY);
     }
     public Cliente getCliente() {
      int id=Integer.parseInt(txtID.getText());

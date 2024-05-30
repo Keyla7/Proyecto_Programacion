@@ -25,7 +25,7 @@ public class ControllerUPDE implements ActionListener {
         this.updateDelete = new UpdateDelete();
         this.updateDelete.escuchar(this);
         this.updateDelete.setVisible(true);
-       this.registroCliente = registroClientes;
+        this.registroCliente = registroClientes;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class ControllerUPDE implements ActionListener {
             case "Update":
                 cliente=updateDelete.getCliente();
                 if (cliente!=null) {
-                    JOptionPane.showMessageDialog(null, registroCliente.agregarCliente(cliente));
+                    JOptionPane.showMessageDialog(null, registroCliente.agregarCliente(cliente));           
                 }
                 break;
             case "Delete":

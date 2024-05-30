@@ -170,6 +170,7 @@ public class Payment extends javax.swing.JFrame {
         btSearch.setForeground(new java.awt.Color(51, 51, 51));
         btSearch.setText("Add");
         btSearch.setBorder(null);
+        btSearch.setFocusPainted(false);
         btSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btSearchMouseEntered(evt);
@@ -178,11 +179,11 @@ public class Payment extends javax.swing.JFrame {
                 btSearchMouseExited(evt);
             }
         });
-        jPanel1.add(btSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 50, 30));
+        jPanel1.add(btSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 50, 30));
 
-        tblPayment.setBackground(new java.awt.Color(51, 51, 51));
+        tblPayment.setBackground(new java.awt.Color(255, 51, 51));
         tblPayment.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        tblPayment.setForeground(new java.awt.Color(204, 255, 255));
+        tblPayment.setForeground(new java.awt.Color(51, 51, 51));
         tblPayment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -193,7 +194,7 @@ public class Payment extends javax.swing.JFrame {
         ));
         tblPayment.setGridColor(new java.awt.Color(51, 51, 51));
         tblPayment.setSelectionBackground(new java.awt.Color(51, 51, 51));
-        tblPayment.setSelectionForeground(new java.awt.Color(51, 51, 51));
+        tblPayment.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tblPayment);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 470, 300));
@@ -243,6 +244,11 @@ public class Payment extends javax.swing.JFrame {
         txtNombre.setForeground(new java.awt.Color(204, 204, 204));
         txtNombre.setText("..........");
         txtNombre.setBorder(null);
+        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNombreMouseClicked(evt);
+            }
+        });
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
@@ -281,6 +287,11 @@ public class Payment extends javax.swing.JFrame {
         txtAmount.setForeground(new java.awt.Color(204, 204, 204));
         txtAmount.setText("-----");
         txtAmount.setBorder(null);
+        txtAmount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtAmountMouseClicked(evt);
+            }
+        });
         txtAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAmountActionPerformed(evt);
@@ -305,6 +316,11 @@ public class Payment extends javax.swing.JFrame {
         txtInvoice.setForeground(new java.awt.Color(204, 204, 204));
         txtInvoice.setText("-----");
         txtInvoice.setBorder(null);
+        txtInvoice.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtInvoiceMouseClicked(evt);
+            }
+        });
         txtInvoice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtInvoiceActionPerformed(evt);
@@ -375,7 +391,18 @@ public class Payment extends javax.swing.JFrame {
             txtDate.setText("DD/MM/YY");
             txtDate.setForeground(Color.LIGHT_GRAY);
         }
-
+        if (txtNombre.getText().isEmpty()) {
+            txtNombre.setText("..........");
+            txtNombre.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtAmount.getText().isEmpty()) {
+            txtAmount.setText("-----");
+            txtAmount.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtInvoice.getText().isEmpty()) {
+            txtInvoice.setText("-----");
+            txtInvoice.setForeground(Color.LIGHT_GRAY);
+        }
     }//GEN-LAST:event_txtIDMouseClicked
 
     private void txtDateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDateMouseClicked
@@ -386,6 +413,18 @@ public class Payment extends javax.swing.JFrame {
         if (txtID.getText().isEmpty()) {
             txtID.setText("Ingrese el ID");
             txtID.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtNombre.getText().isEmpty()) {
+            txtNombre.setText("..........");
+            txtNombre.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtAmount.getText().isEmpty()) {
+            txtAmount.setText("-----");
+            txtAmount.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtInvoice.getText().isEmpty()) {
+            txtInvoice.setText("-----");
+            txtInvoice.setForeground(Color.LIGHT_GRAY);
         }
     }//GEN-LAST:event_txtDateMouseClicked
 
@@ -402,6 +441,75 @@ public class Payment extends javax.swing.JFrame {
     private void txtInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInvoiceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtInvoiceActionPerformed
+
+    private void txtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseClicked
+         if (txtNombre.getText().equals("..........")) {
+            txtNombre.setText("");
+            txtNombre.setForeground(Color.DARK_GRAY);
+        }
+        if (txtID.getText().isEmpty()) {
+            txtID.setText("Ingrese el ID");
+            txtID.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtDate.getText().isEmpty()) {
+            txtDate.setText("DD/MM/YY");
+            txtDate.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtAmount.getText().isEmpty()) {
+            txtAmount.setText("-----");
+            txtAmount.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtInvoice.getText().isEmpty()) {
+            txtInvoice.setText("-----");
+            txtInvoice.setForeground(Color.LIGHT_GRAY);
+        }
+    }//GEN-LAST:event_txtNombreMouseClicked
+
+    private void txtAmountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAmountMouseClicked
+       if (txtAmount.getText().equals("-----")) {
+            txtAmount.setText("");
+            txtAmount.setForeground(Color.DARK_GRAY);
+        }
+        if (txtID.getText().isEmpty()) {
+            txtID.setText("Ingrese el ID");
+            txtID.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtDate.getText().isEmpty()) {
+            txtDate.setText("DD/MM/YY");
+            txtDate.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtNombre.getText().isEmpty()) {
+            txtNombre.setText("..........");
+            txtNombre.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtInvoice.getText().isEmpty()) {
+            txtInvoice.setText("-----");
+            txtInvoice.setForeground(Color.LIGHT_GRAY);
+        }
+    }//GEN-LAST:event_txtAmountMouseClicked
+
+    private void txtInvoiceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtInvoiceMouseClicked
+        if (txtInvoice.getText().equals("-----")) {
+            txtInvoice.setText("");
+            txtInvoice.setForeground(Color.DARK_GRAY);
+        }
+        if (txtID.getText().isEmpty()) {
+            txtID.setText("Ingrese el ID");
+            txtID.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtDate.getText().isEmpty()) {
+            txtDate.setText("DD/MM/YY");
+            txtDate.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtNombre.getText().isEmpty()) {
+            txtNombre.setText("..........");
+            txtNombre.setForeground(Color.LIGHT_GRAY);
+        }
+        if (txtAmount.getText().isEmpty()) {
+            txtAmount.setText("-----");
+            txtAmount.setForeground(Color.LIGHT_GRAY);
+        }
+    }//GEN-LAST:event_txtInvoiceMouseClicked
 
     /**
      * @param args the command line arguments

@@ -32,8 +32,11 @@ public class ControllerPayment implements ActionListener {
         this.payment.setVisible(true);
         this.registroFacturas = new RegistroFacturas();
         this.registroClientes = new RegistroCliente();
+        try {
+            this.payment.setDataTable(this.registroFacturas.getMatrizFacturas());
+        } catch (IOException e) {
+        }
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand().toString()) {
@@ -42,7 +45,7 @@ public class ControllerPayment implements ActionListener {
                 if (factura != null) {
                     try {
                         JOptionPane.showMessageDialog(null, registroFacturas.addFactura(factura));
-                         payment.setDataTable(registroFacturas.getMatrizFacturas());
+                         this.payment.setDataTable(registroFacturas.getMatrizFacturas());
                     } catch (IOException ex) {
                         Logger.getLogger(ControllerPayment.class.getName()).log(Level.SEVERE, null, ex);
                     }
