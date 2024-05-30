@@ -12,6 +12,7 @@ import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -24,13 +25,23 @@ import java.util.ArrayList;
 public class RegistroFacturas {
 
     private ArrayList<Factura> facturas;
-    private String filePath = "Facturas.csv";
+    private String filePath = "facturas.csv";
     public static final String [] TITULOS_FACTURA = {"idCliente","idFactura","Fecha","Nombre","Metodo de Pago", "Pago Total"};
     
     public RegistroFacturas() {
-        this.facturas = new ArrayList<>();
+       // this.facturas = new ArrayList<>();
+       File file = new File(filePath);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+                System.out.println("Archivo creado: " + file.getAbsolutePath());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
+    
     private static void escribirCSVInternamente(ArrayList<Factura> facturas, String rutaArchivo) throws IOException {
     try (CSVWriter writer = new CSVWriter(new FileWriter(rutaArchivo))) {
         // Configurar el escritor CSV

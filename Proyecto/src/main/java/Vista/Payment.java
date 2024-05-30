@@ -5,8 +5,10 @@
 package Vista;
 
 import Modelo.Factura;
+import Modelo.RegistroFacturas;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -27,6 +29,7 @@ public class Payment extends javax.swing.JFrame {
         initComponents();
         chargeCombo();
     }
+    
     public void escuchar(ActionListener manejador){
         this.btSearch.addActionListener(manejador);
         this.btSalir3.addActionListener(manejador);
@@ -42,7 +45,7 @@ public class Payment extends javax.swing.JFrame {
      return new Factura(idCliente, fecha, nombre, metodoPago, pagoTotal, idFactura);
     }
     public void setDataTable(String[][] data ){
-        String[] encabezado = {"ID","Date","Nombre","Telefono","Payment Method","Amount to pay","Invoice ID"};
+        String[] encabezado = {"ID", "Date" ,"Nombre", "Payment Method", "Amount to pay","Invoice ID"};
         DefaultTableModel model = new DefaultTableModel(data, encabezado);
         this.tblPayment.setModel(model);
         
@@ -53,11 +56,11 @@ public class Payment extends javax.swing.JFrame {
         this.jScrollPane1.setViewportView(this.tblPayment);
     }
     public void Limpiar(){
-        txtDate.setText("");
         txtID.setText("");
-        txtInvoice.setText("");
+        txtDate.setText("");
         txtNombre.setText("");
         txtAmount.setText("");
+        txtInvoice.setText("");
     }
 
     /**
@@ -126,7 +129,7 @@ public class Payment extends javax.swing.JFrame {
                 btSalir3MouseExited(evt);
             }
         });
-        jPanel1.add(btSalir3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 30, 30));
+        jPanel1.add(btSalir3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 30, 30));
 
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
@@ -173,12 +176,10 @@ public class Payment extends javax.swing.JFrame {
         tblPayment.setForeground(new java.awt.Color(204, 255, 255));
         tblPayment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Month", "Amount", "Payment Method"
+                "ID", "Date", "Name", "Payment Method", "Amount to Pay", "Invoice ID"
             }
         ));
         tblPayment.setGridColor(new java.awt.Color(51, 51, 51));
@@ -186,13 +187,13 @@ public class Payment extends javax.swing.JFrame {
         tblPayment.setSelectionForeground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(tblPayment);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 320, 300));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 470, 300));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg3.jpeg"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg3.jpeg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 230, 70));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 350, 70));
 
         jSeparator2.setBackground(new java.awt.Color(51, 51, 51));
         jSeparator2.setForeground(new java.awt.Color(51, 51, 51));
@@ -306,7 +307,7 @@ public class Payment extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 802, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

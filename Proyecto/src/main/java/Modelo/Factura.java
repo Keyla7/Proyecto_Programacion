@@ -87,7 +87,7 @@ public class Factura {
 
     @Override
     public String toString() {
-        return "Factura{" + "idCliente=" + idCliente + ", idFactura=" + idFactura + ", fecha=" + fecha + ", nombre=" + nombre + ", metodoPago=" + metodoPago + ", pagoTotal=" + pagoTotal + '}';
+        return "Factura{" + "idCliente=" + idCliente + ", fecha=" + fecha + ", nombre=" + nombre + ", metodoPago=" + metodoPago + ", pagoTotal=" + pagoTotal + ", idFactura=" + idFactura + '}';
     }
 
     public String getDatosfactura(int c) {
@@ -95,20 +95,15 @@ public class Factura {
             case 0:
                 return idCliente + " ";
             case 1:
-
-                return idFactura + " ";
-            case 2:
-
                 return fecha;
-            case 3:
-
+            case 2:
                 return nombre;
-            case 4:
-
+            case 3:
                 return metodoPago;
-            case 5:
-
+            case 4:
                 return pagoTotal + " ";
+            case 5:
+                return idFactura + " ";
         }
         return "";
     }
