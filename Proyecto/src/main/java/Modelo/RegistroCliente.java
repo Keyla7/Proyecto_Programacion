@@ -31,7 +31,7 @@ public class RegistroCliente {
 
     public String agregarCliente(Cliente cliente) {
         if (cliente != null) {
-            if (buscarCliente(cliente.getId()) == null) {
+            if (buscarClienteB(cliente.getId()) == null) {
                 this.appendToJson(cliente);
                 mensaje = "Cliente agregado correctamente";
             } else {
@@ -55,8 +55,8 @@ public class RegistroCliente {
         for (Cliente miCliente : listaClientes) {
             if (miCliente.getId() == id) {
                 return miCliente;
-            }
-            if (miCliente.getId() != id) {
+            }else
+            {
                 return null;
             }
         }
@@ -64,7 +64,7 @@ public class RegistroCliente {
     }
 
     public String eliminarCliente(Cliente cliente) {
-        if (buscarCliente(cliente.getId()) != null) {
+        if (buscarClienteB(cliente.getId()) != null) {
             this.listaClientes.remove(cliente);
             mensaje = "Cliente eliminado con exito";
         } else {

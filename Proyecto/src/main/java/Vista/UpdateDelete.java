@@ -50,14 +50,13 @@ public class UpdateDelete extends javax.swing.JFrame {
     }
 
     public void limpiarCampos() {
-        this.txtID.setText("");
-        this.txtNombre.setText("");
-        this.txtApellido.setText("");
-        this.txtID.setText("");
-        this.txtEdad.setText("");
-        this.txtTelefono.setText("");
-        this.txtHeight.setText("");
-        this.txtWeight.setText("");
+        this.txtID.setText("Ingrese el ID");
+        this.txtNombre.setText("..........");
+        this.txtApellido.setText("..........");
+        this.txtEdad.setText("..........");
+        this.txtTelefono.setText("0000-0000");
+        this.txtHeight.setText("cm");
+        this.txtWeight.setText("Kg");
     }
 
     /**
