@@ -7,6 +7,7 @@ package Vista;
 import Modelo.Cliente;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
 
 /**
@@ -27,6 +28,21 @@ public class UpdateDelete extends javax.swing.JFrame {
         this.btDelete.addActionListener(manejador);
         this.btSearch.addActionListener(manejador);
         this.btSalir2.addActionListener(manejador);
+    }
+    
+    public void cargarCombo(String[] listaOperaciones) {
+        String[] membresias = {"Membresía Básica", "Membresía Estándar", "Membresía Premium", "Membresía Estudiantil"};
+        String[] planesPago = {"Pago Mensual", "Pago Anual", "Pago Trimestral", "Pago Semestral", "Pago por día"};
+        this.cBoxCategory.setModel(new DefaultComboBoxModel<>(membresias));
+        this.cBoxPayment.setModel(new DefaultComboBoxModel<>(planesPago));
+    }
+
+    public String devolverCombo() {
+        return this.cBoxCategory.getSelectedItem().toString();
+    }
+
+    public String devolverCombo2() {
+        return this.cBoxPayment.getSelectedItem().toString();
     }
 
     /**
@@ -61,10 +77,8 @@ public class UpdateDelete extends javax.swing.JFrame {
         txtTelefono = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
-        txtMember = new javax.swing.JTextField();
         jSeparator8 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
-        txtPayment = new javax.swing.JTextField();
         jSeparator9 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
         txtHeight = new javax.swing.JTextField();
@@ -75,6 +89,8 @@ public class UpdateDelete extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btUpdate = new javax.swing.JButton();
         btDelete = new javax.swing.JButton();
+        cBoxCategory = new javax.swing.JComboBox<>();
+        cBoxPayment = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -213,12 +229,6 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel7.setText("Membership Category");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
 
-        txtMember.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
-        txtMember.setForeground(new java.awt.Color(204, 204, 204));
-        txtMember.setText("..........");
-        txtMember.setBorder(null);
-        jPanel1.add(txtMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 190, 20));
-
         jSeparator8.setBackground(new java.awt.Color(51, 51, 51));
         jSeparator8.setForeground(new java.awt.Color(51, 51, 51));
         jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 190, 10));
@@ -227,12 +237,6 @@ public class UpdateDelete extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("Payment Plan");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, -1, -1));
-
-        txtPayment.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
-        txtPayment.setForeground(new java.awt.Color(204, 204, 204));
-        txtPayment.setText("..........");
-        txtPayment.setBorder(null);
-        jPanel1.add(txtPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 200, 20));
 
         jSeparator9.setBackground(new java.awt.Color(51, 51, 51));
         jSeparator9.setForeground(new java.awt.Color(51, 51, 51));
@@ -303,6 +307,16 @@ public class UpdateDelete extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 550, 30));
 
+        cBoxCategory.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
+        cBoxCategory.setForeground(new java.awt.Color(51, 51, 51));
+        cBoxCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Membresía Básica", "Membresía Estándar", "Membresía Premium", "Membresía Estudiantil" }));
+        jPanel1.add(cBoxCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 200, 20));
+
+        cBoxPayment.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
+        cBoxPayment.setForeground(new java.awt.Color(51, 51, 51));
+        cBoxPayment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pago Mensual", "Pago Anual", "Pago Trimestral", "Pago Semestral", "Pago por día" }));
+        jPanel1.add(cBoxPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 200, 20));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -372,9 +386,9 @@ public class UpdateDelete extends javax.swing.JFrame {
         txtEdad.setText(cliente.getEdad() + "");
         txtHeight.setText(cliente.getAltura() + "");
         txtApellido.setText(cliente.getApellido());
-        txtMember.setText(cliente.getCategoria());
+        cBoxCategory.setSelectedItem(cliente.getCategoria());
         txtNombre.setText(cliente.getNombre());
-        txtPayment.setText(cliente.getPaymentPlan());
+        cBoxPayment.setSelectedItem(cliente.getPaymentPlan());
         txtTelefono.setText(cliente.getTelefono() + "");
         txtWeight.setText(cliente.getPeso() + "");
     }
@@ -384,8 +398,8 @@ public class UpdateDelete extends javax.swing.JFrame {
      String apellido =txtApellido.getText();
      int edad=Integer.parseInt(txtEdad.getText());
      int telefono =Integer.parseInt(txtTelefono.getText());
-     String categoria=txtMember.getText();
-     String paymentPlan=txtPayment.getText();
+     String categoria=(String) this.devolverCombo();
+     String paymentPlan=(String) this.devolverCombo2();
      double altura =Double.parseDouble(txtHeight.getText());
      double peso=Double.parseDouble(txtWeight.getText());
        return new Cliente(id, nombre, apellido, edad, telefono, categoria, paymentPlan, altura, peso);
@@ -403,6 +417,8 @@ public class UpdateDelete extends javax.swing.JFrame {
     private javax.swing.JButton btSalir2;
     private javax.swing.JButton btSearch;
     private javax.swing.JButton btUpdate;
+    private javax.swing.JComboBox<String> cBoxCategory;
+    private javax.swing.JComboBox<String> cBoxPayment;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -431,9 +447,7 @@ public class UpdateDelete extends javax.swing.JFrame {
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtHeight;
     private javax.swing.JTextField txtID;
-    private javax.swing.JTextField txtMember;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPayment;
     private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtWeight;
     // End of variables declaration//GEN-END:variables
